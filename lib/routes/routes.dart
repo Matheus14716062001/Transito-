@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:project/pages/cadastrar_page.dart';
 import 'package:project/pages/home_page.dart';
 import 'package:project/pages/initial_page.dart';
 import 'package:project/pages/login_page.dart';
@@ -17,6 +16,7 @@ class Routes extends StatelessWidget {
         '/': (context) => const InitialPage(),
         '/HomePage': (context) => const HomePage(),
         '/LoginPage': (context) => const LoginPage(),
+        '/CadastrarPage': (context) => const CadastrarPage(),
       },
     );
   }

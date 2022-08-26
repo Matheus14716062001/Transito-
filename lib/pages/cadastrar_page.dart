@@ -1,20 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:project/pages/login_page.dart';
-
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class CadastrarPage extends StatelessWidget {
+  const CadastrarPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle stylebutton_1 = ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        minimumSize: const Size(350, 60),
-        primary: Colors.green);
-
     final ButtonStyle stylebutton_2 = ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
@@ -27,11 +17,6 @@ class HomePage extends StatelessWidget {
         minimumSize: const Size(350, 60),
         primary: Colors.yellow);
 
-    toLoginScreen(BuildContext context) => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => LoginPage()),
-        );
-
     return MaterialApp(
         home: Scaffold(
       body: Stack(alignment: Alignment.bottomCenter, children: [
@@ -40,17 +25,6 @@ class HomePage extends StatelessWidget {
           fit: BoxFit.cover,
           width: double.infinity,
           height: double.infinity,
-        ),
-        Positioned(
-          bottom: 100.0,
-          child: ElevatedButton(
-            onPressed: () => Navigator.pushNamed(context, '/LoginPage'),
-            style: stylebutton_1,
-            child: const Text(
-              "Login",
-              style: TextStyle(color: Colors.black),
-            ),
-          ),
         ),
         Positioned(
           bottom: 30.0,

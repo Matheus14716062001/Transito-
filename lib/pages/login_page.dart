@@ -7,6 +7,27 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const List<String> email = ["123456", "234567", "345678", "456789"];
+    const List<String> senha = ["123456", "234567", "345678", "456789"];
+    bool validator = false;
+    TextEditingController dadoEmail = TextEditingController();
+    TextEditingController dadoSenha = TextEditingController();
+    // ignore: non_constant_identifier_names
+    bool Validator() {
+      String daemail = dadoEmail.text;
+      String dasenha = dadoSenha.text;
+      int i = 0;
+      while (i < senha.length) {
+        if (senha[i] == dasenha) {
+          if (email[i] == daemail) {
+            validator = true;
+          }
+        }
+        i++;
+      }
+      return validator;
+    }
+
     final ButtonStyle stylebutton_1 = ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
@@ -29,44 +50,67 @@ class LoginPage extends StatelessWidget {
               heightFactor: double.infinity,
               widthFactor: double.infinity,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const SizedBox(height: 190),
                   TextFormField(
                     decoration: const InputDecoration(
                       icon: Icon(Icons.person),
                       hintText: 'Enter your best email',
                       labelText: 'Email',
+                      border: OutlineInputBorder(),
+                      errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 54, 216, 244),
+                              width: 30)),
                     ),
                     onSaved: (String? value) {
                       // This optional block of code can be used to run
                       // code when the user saves the form.
                     },
+                    controller: dadoEmail,
                     validator: (String? value) {
                       return (value != null && value.contains('@'))
                           ? 'Do not use the @ char.'
                           : null;
                     },
                   ),
+                  const SizedBox(height: 20),
                   TextFormField(
-                    decoration: const InputDecoration(
-                      icon: Icon(Icons.person),
-                      hintText: 'Enter your best email',
-                      labelText: 'Email',
-                    ),
-                    onSaved: (String? value) {
-                      // This optional block of code can be used to run
-                      // code when the user saves the form.
-                    },
-                    validator: (String? value) {
-                      return (value != null && value.contains('@'))
-                          ? 'Do not use the @ char.'
-                          : null;
-                    },
-                  ),
+                      decoration: const InputDecoration(
+                        icon: Icon(Icons.person),
+                        labelText: 'Senha',
+                        border: OutlineInputBorder(),
+                        errorBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 54, 216, 244),
+                                width: 30)),
+                      ),
+                      onSaved: (String? value) {
+                        // This optional block of code can be used to run
+                        // code when the user saves the form.
+                      },
+                      controller: dadoSenha,
+                      validator: (String? value) {
+                        return (value != null && value.contains('@'))
+                            ? 'Do not use the @ char.'
+                            : null;
+                      }),
+                  const SizedBox(height: 60),
                   Positioned(
                     child: ElevatedButton(
-                      onPressed: () =>
-                          Navigator.pushNamed(context, '/LoginPage'),
+                      onPressed: () => {
+                        Validator(),
+                        if (validator == true)
+                          {
+                            Navigator.pushNamed(
+                                context, '/HomePage'), ////////////////////////
+                          }
+                        else
+                          {
+                            Navigator.pushNamed(context, '/SinginupPage')
+                          } ////////////////
+                      },
                       style: stylebutton_1,
                       child: const Text(
                         "Login",
