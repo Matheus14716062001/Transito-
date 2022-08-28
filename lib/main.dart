@@ -3,6 +3,7 @@ import 'package:project/pages/home_page.dart';
 import 'package:project/pages/initial_page.dart';
 import 'package:project/pages/login_page.dart';
 import 'package:project/pages/signup_page.dart';
+import 'package:project/pages/cadastrar_page.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -12,7 +13,8 @@ void main() {
       '/': (context) => const InitialPage(),
       '/HomePage': (context) => const HomePage(),
       '/LoginPage': (context) => const LoginPage(),
-      '/SinginupPage': (context) => const Siginup()
+      '/SinginupPage': (context) => const Siginup(),
+      '/CadastrarPage': (context) => const CadastrarPage(),
     },
   ));
 }

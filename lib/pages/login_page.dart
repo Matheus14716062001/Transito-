@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -9,24 +7,41 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     const List<String> email = ["123456", "234567", "345678", "456789"];
     const List<String> senha = ["123456", "234567", "345678", "456789"];
-    bool validator = false;
+    bool validador = false;
+    bool cor = true;
     TextEditingController dadoEmail = TextEditingController();
     TextEditingController dadoSenha = TextEditingController();
     // ignore: non_constant_identifier_names
-    bool Validator() {
+    var voltar = Row(children: [
+      ElevatedButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/HomePage');
+          },
+          child: const Text('oi'))
+    ]);
+
+    void resetar() {
+      dadoEmail.text = '';
+      dadoSenha.text = '';
+    }
+
+    bool Validador() {
       String daemail = dadoEmail.text;
       String dasenha = dadoSenha.text;
       int i = 0;
       while (i < senha.length) {
         if (senha[i] == dasenha) {
           if (email[i] == daemail) {
-            validator = true;
+            validador = true;
           }
         }
         i++;
       }
-      return validator;
+
+      return validador;
     }
+
+    void setState(Null Function() param0) {}
 
     final ButtonStyle stylebutton_1 = ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
@@ -35,6 +50,8 @@ class LoginPage extends StatelessWidget {
         textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         minimumSize: const Size(350, 60),
         primary: Colors.green);
+    final Emailkey = GlobalKey<FormFieldState>();
+    final Senhakey = GlobalKey<FormFieldState>();
     return MaterialApp(
       home: Scaffold(
         body: Stack(
@@ -54,6 +71,7 @@ class LoginPage extends StatelessWidget {
                 children: [
                   const SizedBox(height: 190),
                   TextFormField(
+                    key: Emailkey,
                     decoration: const InputDecoration(
                       icon: Icon(Icons.person),
                       hintText: 'Enter your best email',
@@ -70,13 +88,14 @@ class LoginPage extends StatelessWidget {
                     },
                     controller: dadoEmail,
                     validator: (String? value) {
-                      return (value != null && value.contains('@'))
-                          ? 'Do not use the @ char.'
-                          : null;
+                      if ((value == null) || (validador == false)) {
+                        return 'Email invalida';
+                      }
                     },
                   ),
                   const SizedBox(height: 20),
                   TextFormField(
+                      key: Senhakey,
                       decoration: const InputDecoration(
                         icon: Icon(Icons.person),
                         labelText: 'Senha',
@@ -92,24 +111,23 @@ class LoginPage extends StatelessWidget {
                       },
                       controller: dadoSenha,
                       validator: (String? value) {
-                        return (value != null && value.contains('@'))
-                            ? 'Do not use the @ char.'
-                            : null;
+                        if ((value == null) || (validador == false)) {
+                          return 'Senha invalida';
+                        }
                       }),
-                  const SizedBox(height: 60),
+                  const SizedBox(height: 10),
+                  voltar,
+                  const SizedBox(height: 40),
                   Positioned(
                     child: ElevatedButton(
                       onPressed: () => {
-                        Validator(),
-                        if (validator == true)
-                          {
-                            Navigator.pushNamed(
-                                context, '/HomePage'), ////////////////////////
-                          }
+                        Validador(),
+                        Emailkey.currentState?.validate(),
+                        Senhakey.currentState?.validate(),
+                        if (validador == true)
+                          {Navigator.pushNamed(context, '/HomePage')}
                         else
-                          {
-                            Navigator.pushNamed(context, '/SinginupPage')
-                          } ////////////////
+                          {resetar()}
                       },
                       style: stylebutton_1,
                       child: const Text(
