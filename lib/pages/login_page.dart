@@ -13,11 +13,12 @@ class LoginPage extends StatelessWidget {
     TextEditingController dadoSenha = TextEditingController();
     // ignore: non_constant_identifier_names
     var voltar = Row(children: [
-      ElevatedButton(
+      ElevatedButton.icon(
+          icon: Icon(Icons.arrow_back_ios_rounded),
           onPressed: () {
             Navigator.pushNamed(context, '/HomePage');
           },
-          child: const Text('oi'))
+          label: Text('voltar'))
     ]);
 
     void resetar() {
