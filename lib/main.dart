@@ -4,6 +4,7 @@ import 'package:project/pages/initial_page.dart';
 import 'package:project/pages/login_page.dart';
 import 'package:project/pages/signup_page.dart';
 import 'package:project/pages/cadastrar_page.dart';
+import 'package:project/pages/tipoabastecimento_page.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -15,6 +16,7 @@ void main() {
       '/LoginPage': (context) => const LoginPage(),
       '/SinginupPage': (context) => const Siginup(),
       '/CadastrarPage': (context) => const CadastrarPage(),
+      '/TipoabastecimentoPage': (context) => const TipoabastecimentoPage(),
     },
   ));
 }

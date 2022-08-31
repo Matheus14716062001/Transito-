@@ -5,6 +5,15 @@ class CadastrarPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController dadoNome = TextEditingController();
+    TextEditingController dadoEmail = TextEditingController();
+    TextEditingController dadoSenha = TextEditingController();
+    TextEditingController Confirmarsenha = TextEditingController();
+    final Emailkey = GlobalKey<FormFieldState>();
+    final Nomekey = GlobalKey<FormFieldState>();
+    final Senhakey = GlobalKey<FormFieldState>();
+    final Confirmarsenhakey = GlobalKey<FormFieldState>();
+
     final ButtonStyle stylebutton_2 = ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
@@ -19,18 +28,18 @@ class CadastrarPage extends StatelessWidget {
 
     var voltar = Row(children: [
       ElevatedButton.icon(
-          icon: Icon(Icons.arrow_back_ios_rounded),
+          icon: const Icon(Icons.arrow_back_ios_rounded),
           onPressed: () {
             Navigator.pushNamed(context, '/HomePage');
           },
-          label: Text('voltar'))
+          label: const Text('voltar'))
     ]);
-    var dadocarro = Container(
+    var dadocarro = SizedBox(
         width: 450,
         height: 50,
         child: Row(children: [
-          SizedBox(width: 40),
-          Container(
+          const SizedBox(width: 40),
+          SizedBox(
               width: 120,
               height: 50,
               child: TextFormField(
@@ -51,8 +60,8 @@ class CadastrarPage extends StatelessWidget {
                       return 'invalida';
                     }
                   })),
-          SizedBox(width: 25),
-          Container(
+          const SizedBox(width: 25),
+          SizedBox(
               width: 120,
               height: 50,
               child: TextFormField(
@@ -73,8 +82,8 @@ class CadastrarPage extends StatelessWidget {
                       return 'invalida';
                     }
                   })),
-          SizedBox(width: 25),
-          Container(
+          const SizedBox(width: 25),
+          SizedBox(
               width: 120,
               height: 50,
               child: TextFormField(
@@ -96,8 +105,9 @@ class CadastrarPage extends StatelessWidget {
                     }
                   }))
         ]));
-    var texto = Container(
-        width: 370, child: Row(children: [Text('Informe sobre o seu carro:')]));
+    var texto = SizedBox(
+        width: 370,
+        child: Row(children: const [Text('Informe sobre o seu carro:')]));
     return MaterialApp(
         home: Scaffold(
       body: Stack(children: [
@@ -116,17 +126,17 @@ class CadastrarPage extends StatelessWidget {
             width: 400,
           )
         ]),
-        Container(
+        SizedBox(
             width: 450,
             child: Center(
                 child: Column(
               children: [
                 const SizedBox(height: 200),
                 TextFormField(
+                  key: Nomekey,
                   decoration: const InputDecoration(
                     icon: Icon(Icons.person),
-                    hintText: 'Enter your best email',
-                    labelText: 'Email',
+                    labelText: 'Nome',
                     border: OutlineInputBorder(),
                     errorBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -137,6 +147,7 @@ class CadastrarPage extends StatelessWidget {
                     // This optional block of code can be used to run
                     // code when the user saves the form.
                   },
+                  controller: dadoNome,
                   validator: (String? value) {
                     if ((value == null)) {
                       return 'invalida';
@@ -145,6 +156,7 @@ class CadastrarPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 TextFormField(
+                  key: Emailkey,
                   decoration: const InputDecoration(
                     icon: Icon(Icons.person),
                     hintText: 'Enter your best email',
@@ -171,10 +183,10 @@ class CadastrarPage extends StatelessWidget {
                 dadocarro,
                 const SizedBox(height: 15),
                 TextFormField(
+                  key: Senhakey,
                   decoration: const InputDecoration(
                     icon: Icon(Icons.person),
-                    hintText: 'Enter your best email',
-                    labelText: 'Email',
+                    labelText: 'Senha',
                     border: OutlineInputBorder(),
                     errorBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -185,6 +197,7 @@ class CadastrarPage extends StatelessWidget {
                     // This optional block of code can be used to run
                     // code when the user saves the form.
                   },
+                  controller: dadoSenha,
                   validator: (String? value) {
                     if ((value == null)) {
                       return 'invalida';
@@ -193,10 +206,10 @@ class CadastrarPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 TextFormField(
+                  key: Confirmarsenhakey,
                   decoration: const InputDecoration(
                     icon: Icon(Icons.person),
-                    hintText: 'Enter your best email',
-                    labelText: 'Email',
+                    labelText: 'Confirmar senha',
                     border: OutlineInputBorder(),
                     errorBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -207,6 +220,7 @@ class CadastrarPage extends StatelessWidget {
                     // This optional block of code can be used to run
                     // code when the user saves the form.
                   },
+                  controller: Confirmarsenha,
                   validator: (String? value) {
                     if ((value == null)) {
                       return 'invalida';
@@ -219,8 +233,7 @@ class CadastrarPage extends StatelessWidget {
                 Positioned(
                   bottom: 30.0,
                   child: ElevatedButton(
-                    onPressed: () =>
-                        Navigator.pushNamed(context, '/CadastrarPage'),
+                    onPressed: () => Navigator.pushNamed(context, '/LoginPage'),
                     style: stylebutton_2,
                     child: const Text(
                       "Cadastrar",

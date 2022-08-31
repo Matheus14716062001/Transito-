@@ -5,20 +5,21 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const List<String> email = ["123456", "234567", "345678", "456789"];
-    const List<String> senha = ["123456", "234567", "345678", "456789"];
+    const List<String> email = ["123456", "234567", "345678", "456789", "1"];
+    const List<String> senha = ["123456", "234567", "345678", "456789", "1"];
     bool validador = false;
-    bool cor = true;
     TextEditingController dadoEmail = TextEditingController();
     TextEditingController dadoSenha = TextEditingController();
+    final Emailkey = GlobalKey<FormFieldState>();
+    final Senhakey = GlobalKey<FormFieldState>();
     // ignore: non_constant_identifier_names
     var voltar = Row(children: [
       ElevatedButton.icon(
-          icon: Icon(Icons.arrow_back_ios_rounded),
+          icon: const Icon(Icons.arrow_back_rounded),
           onPressed: () {
             Navigator.pushNamed(context, '/HomePage');
           },
-          label: Text('voltar'))
+          label: const Text('voltar'))
     ]);
 
     void resetar() {
@@ -42,8 +43,6 @@ class LoginPage extends StatelessWidget {
       return validador;
     }
 
-    void setState(Null Function() param0) {}
-
     final ButtonStyle stylebutton_1 = ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
@@ -51,8 +50,7 @@ class LoginPage extends StatelessWidget {
         textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         minimumSize: const Size(350, 60),
         primary: Colors.green);
-    final Emailkey = GlobalKey<FormFieldState>();
-    final Senhakey = GlobalKey<FormFieldState>();
+
     return MaterialApp(
       home: Scaffold(
         body: Stack(
@@ -79,9 +77,8 @@ class LoginPage extends StatelessWidget {
                       labelText: 'Email',
                       border: OutlineInputBorder(),
                       errorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color.fromARGB(255, 54, 216, 244),
-                              width: 30)),
+                          borderSide:
+                              BorderSide(color: Colors.blue, width: 30)),
                     ),
                     onSaved: (String? value) {
                       // This optional block of code can be used to run
@@ -102,9 +99,8 @@ class LoginPage extends StatelessWidget {
                         labelText: 'Senha',
                         border: OutlineInputBorder(),
                         errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromARGB(255, 54, 216, 244),
-                                width: 30)),
+                            borderSide:
+                                BorderSide(color: Colors.blue, width: 30)),
                       ),
                       onSaved: (String? value) {
                         // This optional block of code can be used to run
@@ -126,7 +122,10 @@ class LoginPage extends StatelessWidget {
                         Emailkey.currentState?.validate(),
                         Senhakey.currentState?.validate(),
                         if (validador == true)
-                          {Navigator.pushNamed(context, '/HomePage')}
+                          {
+                            Navigator.pushNamed(
+                                context, '/TipoabastecimentoPage')
+                          }
                         else
                           {resetar()}
                       },

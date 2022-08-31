@@ -66,6 +66,8 @@ flutter:
     - ./assets/images/homeScreen.png
     - ./assets/images/fundoPage.png
     - ./assets/images/logoPage.png
+    - ./assets/images/combustivel.png
+    - ./assets/images/eletrico.png
 
 
 
