@@ -8,11 +8,18 @@ class CadastrarPage extends StatelessWidget {
     TextEditingController dadoNome = TextEditingController();
     TextEditingController dadoEmail = TextEditingController();
     TextEditingController dadoSenha = TextEditingController();
-    TextEditingController Confirmarsenha = TextEditingController();
+    TextEditingController dadoconfirmarsenha = TextEditingController();
+    TextEditingController dadoMarca = TextEditingController();
+    TextEditingController dadoLinha = TextEditingController();
+    TextEditingController dadoAno = TextEditingController();
+
     final Emailkey = GlobalKey<FormFieldState>();
     final Nomekey = GlobalKey<FormFieldState>();
     final Senhakey = GlobalKey<FormFieldState>();
     final Confirmarsenhakey = GlobalKey<FormFieldState>();
+    final Marcakey = GlobalKey<FormFieldState>();
+    final Linhakey = GlobalKey<FormFieldState>();
+    final Anokey = GlobalKey<FormFieldState>();
 
     final ButtonStyle stylebutton_2 = ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
@@ -41,8 +48,9 @@ class CadastrarPage extends StatelessWidget {
           const SizedBox(width: 40),
           SizedBox(
               width: 120,
-              height: 50,
+              height: 45,
               child: TextFormField(
+                  key: Marcakey,
                   decoration: const InputDecoration(
                     labelText: 'Email',
                     border: OutlineInputBorder(),
@@ -55,16 +63,18 @@ class CadastrarPage extends StatelessWidget {
                     // This optional block of code can be used to run
                     // code when the user saves the form.
                   },
+                  controller: dadoMarca,
                   validator: (String? value) {
-                    if ((value == null)) {
+                    if ((value == null) || (value.isEmpty)) {
                       return 'invalida';
                     }
                   })),
           const SizedBox(width: 25),
           SizedBox(
               width: 120,
-              height: 50,
+              height: 45,
               child: TextFormField(
+                  key: Linhakey,
                   decoration: const InputDecoration(
                     labelText: 'Email',
                     border: OutlineInputBorder(),
@@ -77,16 +87,18 @@ class CadastrarPage extends StatelessWidget {
                     // This optional block of code can be used to run
                     // code when the user saves the form.
                   },
+                  controller: dadoLinha,
                   validator: (String? value) {
-                    if ((value == null)) {
+                    if ((value == null) || (value.isEmpty)) {
                       return 'invalida';
                     }
                   })),
           const SizedBox(width: 25),
           SizedBox(
               width: 120,
-              height: 50,
+              height: 45,
               child: TextFormField(
+                  key: Anokey,
                   decoration: const InputDecoration(
                     labelText: 'Email',
                     border: OutlineInputBorder(),
@@ -99,8 +111,9 @@ class CadastrarPage extends StatelessWidget {
                     // This optional block of code can be used to run
                     // code when the user saves the form.
                   },
+                  controller: dadoAno,
                   validator: (String? value) {
-                    if ((value == null)) {
+                    if ((value == null) || (value.isEmpty)) {
                       return 'invalida';
                     }
                   }))
@@ -118,12 +131,12 @@ class CadastrarPage extends StatelessWidget {
           height: double.infinity,
         ),
         Row(children: [
-          const SizedBox(width: 60),
+          const SizedBox(width: 120),
           Image.asset(
             './assets/images/logoPage.png',
             alignment: Alignment.topCenter,
-            height: 400,
-            width: 400,
+            height: 300,
+            width: 300,
           )
         ]),
         SizedBox(
@@ -131,109 +144,131 @@ class CadastrarPage extends StatelessWidget {
             child: Center(
                 child: Column(
               children: [
-                const SizedBox(height: 200),
-                TextFormField(
-                  key: Nomekey,
-                  decoration: const InputDecoration(
-                    icon: Icon(Icons.person),
-                    labelText: 'Nome',
-                    border: OutlineInputBorder(),
-                    errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Color.fromARGB(255, 54, 216, 244),
-                            width: 30)),
+                const SizedBox(height: 180),
+                SizedBox(
+                  height: 45,
+                  child: TextFormField(
+                    key: Nomekey,
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.person),
+                      labelText: 'Nome',
+                      border: OutlineInputBorder(),
+                      errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 54, 216, 244),
+                              width: 30)),
+                    ),
+                    onSaved: (String? value) {
+                      // This optional block of code can be used to run
+                      // code when the user saves the form.
+                    },
+                    controller: dadoNome,
+                    validator: (String? value) {
+                      if ((value == null) || (value.isEmpty)) {
+                        return 'invalida';
+                      }
+                    },
                   ),
-                  onSaved: (String? value) {
-                    // This optional block of code can be used to run
-                    // code when the user saves the form.
-                  },
-                  controller: dadoNome,
-                  validator: (String? value) {
-                    if ((value == null)) {
-                      return 'invalida';
-                    }
-                  },
                 ),
                 const SizedBox(height: 10),
-                TextFormField(
-                  key: Emailkey,
-                  decoration: const InputDecoration(
-                    icon: Icon(Icons.person),
-                    hintText: 'Enter your best email',
-                    labelText: 'Email',
-                    border: OutlineInputBorder(),
-                    errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Color.fromARGB(255, 54, 216, 244),
-                            width: 30)),
+                SizedBox(
+                  height: 45,
+                  child: TextFormField(
+                    key: Emailkey,
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.person),
+                      hintText: 'Enter your best email',
+                      labelText: 'Email',
+                      border: OutlineInputBorder(),
+                      errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 54, 216, 244),
+                              width: 30)),
+                    ),
+                    onSaved: (String? value) {
+                      // This optional block of code can be used to run
+                      // code when the user saves the form.
+                    },
+                    validator: (String? value) {
+                      if ((value == null) || (value.isEmpty)) {
+                        return 'invalida';
+                      }
+                    },
                   ),
-                  onSaved: (String? value) {
-                    // This optional block of code can be used to run
-                    // code when the user saves the form.
-                  },
-                  validator: (String? value) {
-                    if ((value == null)) {
-                      return 'invalida';
-                    }
-                  },
                 ),
                 const SizedBox(height: 15),
                 texto,
                 const SizedBox(height: 5),
                 dadocarro,
                 const SizedBox(height: 15),
-                TextFormField(
-                  key: Senhakey,
-                  decoration: const InputDecoration(
-                    icon: Icon(Icons.person),
-                    labelText: 'Senha',
-                    border: OutlineInputBorder(),
-                    errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Color.fromARGB(255, 54, 216, 244),
-                            width: 30)),
+                SizedBox(
+                  height: 45,
+                  child: TextFormField(
+                    key: Senhakey,
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.person),
+                      labelText: 'Senha',
+                      border: OutlineInputBorder(),
+                      errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 54, 216, 244),
+                              width: 30)),
+                    ),
+                    onSaved: (String? value) {
+                      // This optional block of code can be used to run
+                      // code when the user saves the form.
+                    },
+                    controller: dadoSenha,
+                    validator: (String? value) {
+                      if ((value == null) || (value.isEmpty)) {
+                        return 'invalida';
+                      }
+                    },
                   ),
-                  onSaved: (String? value) {
-                    // This optional block of code can be used to run
-                    // code when the user saves the form.
-                  },
-                  controller: dadoSenha,
-                  validator: (String? value) {
-                    if ((value == null)) {
-                      return 'invalida';
-                    }
-                  },
                 ),
                 const SizedBox(height: 10),
-                TextFormField(
-                  key: Confirmarsenhakey,
-                  decoration: const InputDecoration(
-                    icon: Icon(Icons.person),
-                    labelText: 'Confirmar senha',
-                    border: OutlineInputBorder(),
-                    errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Color.fromARGB(255, 54, 216, 244),
-                            width: 30)),
+                SizedBox(
+                  height: 45,
+                  child: TextFormField(
+                    key: Confirmarsenhakey,
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.person),
+                      labelText: 'Confirmar senha',
+                      border: OutlineInputBorder(),
+                      errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 54, 216, 244),
+                              width: 30)),
+                    ),
+                    onSaved: (String? value) {
+                      // This optional block of code can be used to run
+                      // code when the user saves the form.
+                    },
+                    controller: dadoconfirmarsenha,
+                    validator: (String? value) {
+                      if ((value == null) || (value.isEmpty)) {
+                        return 'invalida';
+                      }
+                    },
                   ),
-                  onSaved: (String? value) {
-                    // This optional block of code can be used to run
-                    // code when the user saves the form.
-                  },
-                  controller: Confirmarsenha,
-                  validator: (String? value) {
-                    if ((value == null)) {
-                      return 'invalida';
-                    }
-                  },
                 ),
                 const SizedBox(height: 10),
                 voltar,
                 const SizedBox(height: 10),
                 Positioned(
-                  bottom: 30.0,
+                  bottom: 20.0,
                   child: ElevatedButton(
-                    onPressed: () => Navigator.pushNamed(context, '/LoginPage'),
+                    onPressed: () => {
+                      Emailkey.currentState?.validate(),
+                      Senhakey.currentState?.validate(),
+                      Nomekey.currentState?.validate(),
+                      Confirmarsenhakey.currentState?.validate(),
+                      Marcakey.currentState?.validate(),
+                      Linhakey.currentState?.validate(),
+                      Anokey.currentState?.validate(),
+
+                      //Navigator.pushNamed(context, '/LoginPage'),
+                    },
                     style: stylebutton_2,
                     child: const Text(
                       "Cadastrar",

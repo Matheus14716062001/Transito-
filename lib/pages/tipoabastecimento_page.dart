@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/pages/NavBar.dart';
 
 class TipoabastecimentoPage extends StatelessWidget {
   const TipoabastecimentoPage({Key? key}) : super(key: key);
@@ -7,19 +8,12 @@ class TipoabastecimentoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
+      drawer: const NavBar(),
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(55),
-          child: AppBar(
-            leading: Container(
-                width: 55,
-                height: 55,
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage('images/logoPage.png')))),
-            actions: [
-              IconButton(onPressed: () {}, icon: const Icon(Icons.dehaze))
-            ],
-          )),
+          child: AppBar(actions: [
+            SizedBox(width: 55, child: Image.asset('images/logoPage.png'))
+          ])),
       body: Stack(alignment: Alignment.bottomCenter, children: [
         const Image(
           image: AssetImage('./assets/images/fundopage.png'),
@@ -28,7 +22,7 @@ class TipoabastecimentoPage extends StatelessWidget {
           height: double.infinity,
         ),
         Center(
-            child: Container(
+            child: SizedBox(
                 width: 450,
                 height: 900,
                 child: Column(children: [
@@ -82,8 +76,8 @@ class TipoabastecimentoPage extends StatelessWidget {
                                   child: IconButton(
                                     icon: Image.asset('images/eletrico.png'),
                                     iconSize: 90,
-                                    onPressed: () =>
-                                        Navigator.pushNamed(context, '/'),
+                                    onPressed: () => Navigator.pushNamed(
+                                        context, '/EstacoesPages'),
                                   ))))),
                   const SizedBox(height: 25),
                   Container(

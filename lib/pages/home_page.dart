@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:project/pages/login_page.dart';
-
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -26,11 +24,6 @@ class HomePage extends StatelessWidget {
         elevation: 5,
         minimumSize: const Size(350, 60),
         primary: Colors.yellow);
-
-    toLoginScreen(BuildContext context) => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => LoginPage()),
-        );
 
     return MaterialApp(
         home: Scaffold(
