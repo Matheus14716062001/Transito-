@@ -1,3 +1,4 @@
+import 'dart:html';
 import 'dart:js';
 
 import 'package:flutter/material.dart';
@@ -9,6 +10,14 @@ class EstacoesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Map> lista = [
+      {'endereco': 'Av. Dom Hélder Câmara, 1', 'kWh': '1,25', 'Estrela': '5'},
+      {'endereco': 'Av. Dom Hélder Câmara, 2', 'kWh': '1,25', 'Estrela': '5'},
+      {'endereco': 'Av. Dom Hélder Câmara, 3', 'kWh': '1,25', 'Estrela': '5'},
+      {'endereco': 'Av. Dom Hélder Câmara, 4', 'kWh': '1,25', 'Estrela': '5'},
+      {'endereco': 'Av. Dom Hélder Câmara, 5', 'kWh': '1,25', 'Estrela': '5'},
+      {'endereco': 'Av. Dom Hélder Câmara, 6', 'kWh': '1,25', 'Estrela': '5'}
+    ];
     return MaterialApp(
         home: Scaffold(
             drawer: const NavBar(),
@@ -25,25 +34,26 @@ class EstacoesPage extends StatelessWidget {
                 height: double.infinity,
               ),
               Row(children: [
-                const SizedBox(width: 120),
+                const SizedBox(width: 100),
                 Image.asset(
                   'images/carro.png',
                   alignment: Alignment.topCenter,
-                  height: 300,
+                  height: 150,
                   width: 300,
                 )
               ]),
-              SizedBox(
-                  height: 400,
+              Expanded(
+                  flex: 11,
                   child: Center(
                       child: Column(children: [
-                    const SizedBox(height: 140),
+                    const SizedBox(height: 100),
                     const Text('Volkswagen, Fox/Motor: 1.6/Ano: 2014',
                         style: TextStyle(
                           color: Colors.white,
+                          fontSize: 10,
                         ),
                         textAlign: TextAlign.center),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 15),
                     Container(
                         width: 400.0,
                         height: 20.0,
@@ -93,7 +103,7 @@ class EstacoesPage extends StatelessWidget {
                           width: 150.0,
                           height: 20.0,
                           decoration: const BoxDecoration(
-                              color: Colors.yellow,
+                              color: Colors.blue,
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(20.0),
                                 topRight: Radius.circular(20.0),
@@ -101,11 +111,11 @@ class EstacoesPage extends StatelessWidget {
                                 bottomRight: Radius.circular(20.0),
                               )),
                           child: const Text(
-                            'Consumo médio de 15,8 kWh a cada 100 Km',
+                            '20 Km/h',
                             style: TextStyle(
                               color: Colors.black,
                             ),
-                            textAlign: TextAlign.right,
+                            textAlign: TextAlign.center,
                           ))
                     ]),
                     const SizedBox(height: 10),
@@ -128,7 +138,7 @@ class EstacoesPage extends StatelessWidget {
                           width: 150.0,
                           height: 20.0,
                           decoration: const BoxDecoration(
-                              color: Colors.yellow,
+                              color: Colors.blue,
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(20.0),
                                 topRight: Radius.circular(20.0),
@@ -136,11 +146,11 @@ class EstacoesPage extends StatelessWidget {
                                 bottomRight: Radius.circular(20.0),
                               )),
                           child: const Text(
-                            'Consumo médio de 15,8 kWh a cada 100 Km',
+                            '40 Km/h',
                             style: TextStyle(
                               color: Colors.black,
                             ),
-                            textAlign: TextAlign.right,
+                            textAlign: TextAlign.center,
                           ))
                     ]),
                     const SizedBox(height: 10),
@@ -163,7 +173,7 @@ class EstacoesPage extends StatelessWidget {
                           width: 150.0,
                           height: 20.0,
                           decoration: const BoxDecoration(
-                              color: Colors.yellow,
+                              color: Colors.blue,
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(20.0),
                                 topRight: Radius.circular(20.0),
@@ -171,14 +181,14 @@ class EstacoesPage extends StatelessWidget {
                                 bottomRight: Radius.circular(20.0),
                               )),
                           child: const Text(
-                            'Consumo médio de 15,8 kWh a cada 100 Km',
+                            '320 Km/h',
                             style: TextStyle(
                               color: Colors.black,
                             ),
-                            textAlign: TextAlign.right,
+                            textAlign: TextAlign.center,
                           ))
                     ]),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Container(
                         width: 400.0,
                         height: 30.0,
@@ -186,13 +196,74 @@ class EstacoesPage extends StatelessWidget {
                           color: Color.fromARGB(255, 75, 255, 59),
                         ),
                         child: const Text(
-                          'Consumo médio de 15,8 kWh a cada 100 Km',
+                          'ESTAÇÕES MAIS PERTO',
                           style: TextStyle(
                             color: Colors.black,
+                            fontSize: 20,
                           ),
                           textAlign: TextAlign.center,
-                        ))
+                        )),
+
+                    Expanded(
+                        flex: 10,
+                        child: ListView.separated(
+                          padding: const EdgeInsets.all(40.0),
+                          itemCount: lista.length,
+                          itemBuilder: ((context, index) {
+                            return Produto(lista[index]);
+                          }),
+                          separatorBuilder: (__, _) => const Divider(),
+                        )) //)
                   ]))),
             ])));
   }
+}
+
+Widget Produto(Map produto) {
+  return Container(
+      width: 250.0,
+      height: 55.0,
+      decoration: const BoxDecoration(color: Color.fromARGB(255, 54, 33, 243)),
+      child: Row(
+        //mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Column(
+            children: [
+              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+                IconButton(
+                    icon: const Icon(Icons.volume_up, size: 15),
+                    onPressed: () {}),
+                const Image(image: AssetImage('images/Estrela.png')),
+                const Image(image: AssetImage('images/Estrela.png')),
+                const Image(image: AssetImage('images/Estrela.png')),
+                const Image(image: AssetImage('images/Estrela.png')),
+                const Image(image: AssetImage('images/Estrela.png'))
+              ]),
+              Text(
+                ' ${produto['endereco']}',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            width: 80,
+          ),
+          Text(
+            'kWh ${produto['kWh']}',
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 12,
+            ),
+          ),
+          const SizedBox(
+            width: 80,
+          ),
+          IconButton(
+              icon: const Icon(Icons.volume_up, size: 15), onPressed: () {}),
+        ],
+      ));
 }

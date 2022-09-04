@@ -115,25 +115,20 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(height: 10),
                   voltar,
                   const SizedBox(height: 40),
-                  Positioned(
-                    child: ElevatedButton(
-                      onPressed: () => {
-                        Validador(),
-                        Emailkey.currentState?.validate(),
-                        Senhakey.currentState?.validate(),
-                        if (validador == true)
-                          {
-                            Navigator.pushNamed(
-                                context, '/TipoabastecimentoPage')
-                          }
-                        else
-                          {resetar()}
-                      },
-                      style: stylebutton_1,
-                      child: const Text(
-                        "Login",
-                        style: TextStyle(color: Colors.black),
-                      ),
+                  ElevatedButton(
+                    onPressed: () => {
+                      Validador(),
+                      Emailkey.currentState?.validate(),
+                      Senhakey.currentState?.validate(),
+                      if (validador == true)
+                        {Navigator.pushNamed(context, '/TipoabastecimentoPage')}
+                      else
+                        {resetar()}
+                    },
+                    style: stylebutton_1,
+                    child: const Text(
+                      "Login",
+                      style: TextStyle(color: Colors.black),
                     ),
                   ),
                 ],

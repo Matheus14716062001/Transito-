@@ -255,8 +255,7 @@ class CadastrarPage extends StatelessWidget {
                 const SizedBox(height: 10),
                 voltar,
                 const SizedBox(height: 10),
-                Positioned(
-                  bottom: 20.0,
+                SizedBox(
                   child: ElevatedButton(
                     onPressed: () => {
                       Emailkey.currentState?.validate(),
