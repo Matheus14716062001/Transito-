@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:project/pages/estacoes_page.dart';
+import 'package:project/pages/fila_page.dart';
 import 'package:project/pages/home_page.dart';
 import 'package:project/pages/initial_page.dart';
 import 'package:project/pages/login_page.dart';
+
+import 'package:project/pages/postos_page.dart';
 import 'package:project/pages/signup_page.dart';
 import 'package:project/pages/cadastrar_page.dart';
 import 'package:project/pages/tipoabastecimento_page.dart';
@@ -17,8 +21,10 @@ void main() {
       '/LoginPage': (context) => const LoginPage(),
       '/SinginupPage': (context) => const Siginup(),
       '/CadastrarPage': (context) => const CadastrarPage(),
-      '/TipoabastecimentoPage': (context) => const TipoabastecimentoPage(),
-      '/EstacoesPages': (context) => const EstacoesPage(),
+      '/TipoabastecimentoPage': (context) => TipoabastecimentoPage(),
+      '/EstacoesPage': (context) => const EstacoesPage(),
+      '/PostoPage': (context) => const PostoPage(),
+      '/FilaPage': (context) => const FilaPage(),
     },
   ));
 }

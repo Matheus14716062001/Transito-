@@ -17,7 +17,7 @@ class LoginPage extends StatelessWidget {
       ElevatedButton.icon(
           icon: const Icon(Icons.arrow_back_rounded),
           onPressed: () {
-            Navigator.pushNamed(context, '/HomePage');
+            Navigator.pop(context);
           },
           label: const Text('voltar'))
     ]);

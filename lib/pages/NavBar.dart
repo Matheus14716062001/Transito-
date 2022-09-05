@@ -17,8 +17,8 @@ class NavBar extends StatelessWidget {
         ),
         ListTile(
           leading: const Icon(Icons.favorite),
-          title: const Text('Favorito'),
-          onTap: () => {},
+          title: const Text('Voltar'),
+          onTap: () => {Navigator.pop(context)},
         ),
         ListTile(
           leading: const Icon(Icons.favorite),

@@ -67,7 +67,10 @@ flutter:
     - ./assets/images/fundoPage.png
     - ./assets/images/logoPage.png
     - ./assets/images/combustivel.png
+    - ./assets/images/carro.png
+    - ./assets/images/Estrela.png
     - ./assets/images/eletrico.png
+ 
 
 
 
