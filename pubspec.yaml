@@ -70,8 +70,12 @@ flutter:
     - ./assets/images/carro.png
     - ./assets/images/Estrela.png
     - ./assets/images/eletrico.png
- 
+    - ./assets/images/Qr.png
+    - ./assets/images/Component10.png
+    - ./assets/images/mapa.png
+    - ./assets/images/pix.png
 
+ 
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

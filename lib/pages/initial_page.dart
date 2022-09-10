@@ -25,6 +25,19 @@ class InitialPage extends StatelessWidget {
         Positioned(
           bottom: 100.0,
           child: ElevatedButton(
+            onPressed: () => Navigator.pushNamed(context, '/PagamentoPage'),
+            //'/EstacoesPages'
+            ///HomePage
+            style: stylebutton_1,
+            child: const Text(
+              "Login",
+              style: TextStyle(color: Colors.black),
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: 100.0,
+          child: ElevatedButton(
             onPressed: () => Navigator.pushNamed(context, '/HomePage'),
             //'/EstacoesPages'
             ///HomePage

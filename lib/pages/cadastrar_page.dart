@@ -20,7 +20,9 @@ class CadastrarPage extends StatelessWidget {
     final Marcakey = GlobalKey<FormFieldState>();
     final Linhakey = GlobalKey<FormFieldState>();
     final Anokey = GlobalKey<FormFieldState>();
-
+    const List<double> w = [0.8, 0.085, 0.055, 0.24, 0.35];
+    const List<double> e = [0.1, 0.035, 0.03, 0.038];
+    const List<double> f = [25, 15];
     final ButtonStyle stylebutton_2 = ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
@@ -37,18 +39,16 @@ class CadastrarPage extends StatelessWidget {
       ElevatedButton.icon(
           icon: const Icon(Icons.arrow_back_ios_rounded),
           onPressed: () {
-            Navigator.pushNamed(context, '/HomePage');
+            Navigator.pop(context);
           },
           label: const Text('voltar'))
     ]);
     var dadocarro = SizedBox(
-        width: 450,
-        height: 50,
+        width: w[0] * MediaQuery.of(context).size.width,
         child: Row(children: [
-          const SizedBox(width: 40),
           SizedBox(
-              width: 120,
-              height: 45,
+              height: w[2] * MediaQuery.of(context).size.height,
+              width: w[3] * MediaQuery.of(context).size.width,
               child: TextFormField(
                   key: Marcakey,
                   decoration: const InputDecoration(
@@ -65,14 +65,14 @@ class CadastrarPage extends StatelessWidget {
                   },
                   controller: dadoMarca,
                   validator: (String? value) {
-                    if ((value == null) || (value.isEmpty)) {
+                    if (value == null || value.isEmpty) {
                       return 'invalida';
                     }
                   })),
-          const SizedBox(width: 25),
+          SizedBox(width: e[3] * MediaQuery.of(context).size.width),
           SizedBox(
-              width: 120,
-              height: 45,
+              height: w[2] * MediaQuery.of(context).size.height,
+              width: w[3] * MediaQuery.of(context).size.width,
               child: TextFormField(
                   key: Linhakey,
                   decoration: const InputDecoration(
@@ -89,14 +89,14 @@ class CadastrarPage extends StatelessWidget {
                   },
                   controller: dadoLinha,
                   validator: (String? value) {
-                    if ((value == null) || (value.isEmpty)) {
+                    if (value == null || value.isEmpty) {
                       return 'invalida';
                     }
                   })),
-          const SizedBox(width: 25),
+          SizedBox(width: e[3] * MediaQuery.of(context).size.width),
           SizedBox(
-              width: 120,
-              height: 45,
+              height: w[2] * MediaQuery.of(context).size.height,
+              width: w[3] * MediaQuery.of(context).size.width,
               child: TextFormField(
                   key: Anokey,
                   decoration: const InputDecoration(
@@ -113,40 +113,38 @@ class CadastrarPage extends StatelessWidget {
                   },
                   controller: dadoAno,
                   validator: (String? value) {
-                    if ((value == null) || (value.isEmpty)) {
+                    if (value == null || value.isEmpty) {
                       return 'invalida';
                     }
                   }))
         ]));
     var texto = SizedBox(
-        width: 370,
-        child: Row(children: const [Text('Informe sobre o seu carro:')]));
+        child: Row(children: [
+      SizedBox(width: 0.1 * MediaQuery.of(context).size.width),
+      const Text('Informe sobre o seu carro:')
+    ]));
     return MaterialApp(
         home: Scaffold(
-      body: Stack(children: [
-        const Image(
-          image: AssetImage('./assets/images/fundoPage.png'),
-          fit: BoxFit.cover,
-          width: double.infinity,
-          height: double.infinity,
-        ),
-        Row(children: [
-          const SizedBox(width: 120),
-          Image.asset(
-            './assets/images/logoPage.png',
-            alignment: Alignment.topCenter,
-            height: 300,
-            width: 300,
-          )
-        ]),
-        Center(
-            child: SizedBox(
-                width: 350,
-                child: Column(
+            body: Container(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage('./assets/images/fundoPage.png'),
+                  fit: BoxFit.cover,
+                )),
+                child: Center(
+                    child: Column(
                   children: [
-                    const SizedBox(height: 180),
+                    Image.asset(
+                      './assets/images/logoPage.png',
+                      alignment: Alignment.topCenter,
+                      height: w[4] * MediaQuery.of(context).size.height,
+                      width: w[0] * MediaQuery.of(context).size.width,
+                    ),
                     SizedBox(
-                      height: 45,
+                      height: w[2] * MediaQuery.of(context).size.height,
+                      width: w[0] * MediaQuery.of(context).size.width,
                       child: TextFormField(
                         key: Nomekey,
                         decoration: const InputDecoration(
@@ -164,15 +162,16 @@ class CadastrarPage extends StatelessWidget {
                         },
                         controller: dadoNome,
                         validator: (String? value) {
-                          if ((value == null) || (value.isEmpty)) {
+                          if (value == null || value.isEmpty) {
                             return 'invalida';
                           }
                         },
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(height: e[2] * MediaQuery.of(context).size.height),
                     SizedBox(
-                      height: 45,
+                      height: w[2] * MediaQuery.of(context).size.height,
+                      width: w[0] * MediaQuery.of(context).size.width,
                       child: TextFormField(
                         key: Emailkey,
                         decoration: const InputDecoration(
@@ -190,19 +189,22 @@ class CadastrarPage extends StatelessWidget {
                           // code when the user saves the form.
                         },
                         validator: (String? value) {
-                          if ((value == null) || (value.isEmpty)) {
+                          if (value == null || value.isEmpty) {
                             return 'invalida';
                           }
                         },
                       ),
                     ),
-                    const SizedBox(height: 15),
+                    SizedBox(height: e[1] * MediaQuery.of(context).size.height),
                     texto,
-                    const SizedBox(height: 5),
-                    dadocarro,
-                    const SizedBox(height: 15),
                     SizedBox(
-                      height: 45,
+                        height:
+                            e[2] * 0.25 * MediaQuery.of(context).size.height),
+                    dadocarro,
+                    SizedBox(height: e[1] * MediaQuery.of(context).size.height),
+                    SizedBox(
+                      height: w[2] * MediaQuery.of(context).size.height,
+                      width: w[0] * MediaQuery.of(context).size.width,
                       child: TextFormField(
                         key: Senhakey,
                         decoration: const InputDecoration(
@@ -220,15 +222,16 @@ class CadastrarPage extends StatelessWidget {
                         },
                         controller: dadoSenha,
                         validator: (String? value) {
-                          if ((value == null) || (value.isEmpty)) {
+                          if (value == null || value.isEmpty) {
                             return 'invalida';
                           }
                         },
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(height: e[2] * MediaQuery.of(context).size.height),
                     SizedBox(
-                      height: 45,
+                      height: w[2] * MediaQuery.of(context).size.height,
+                      width: w[0] * MediaQuery.of(context).size.width,
                       child: TextFormField(
                         key: Confirmarsenhakey,
                         decoration: const InputDecoration(
@@ -246,16 +249,18 @@ class CadastrarPage extends StatelessWidget {
                         },
                         controller: dadoconfirmarsenha,
                         validator: (String? value) {
-                          if ((value == null) || (value.isEmpty)) {
+                          if (value == null || value.isEmpty) {
                             return 'invalida';
                           }
                         },
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    SizedBox(height: e[2] * MediaQuery.of(context).size.height),
                     voltar,
-                    const SizedBox(height: 10),
+                    SizedBox(height: e[2] * MediaQuery.of(context).size.height),
                     SizedBox(
+                      width: w[0] * MediaQuery.of(context).size.width,
+                      height: w[1] * MediaQuery.of(context).size.height,
                       child: ElevatedButton(
                         onPressed: () => {
                           Emailkey.currentState?.validate(),
@@ -276,8 +281,6 @@ class CadastrarPage extends StatelessWidget {
                       ),
                     ),
                   ],
-                )))
-      ]),
-    ));
+                )))));
   }
 }
