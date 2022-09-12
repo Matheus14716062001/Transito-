@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'NavBar.dart';
+import '../Widget/NavBar.dart';
 
 class FilaPage extends StatelessWidget {
   const FilaPage({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class FilaPage extends StatelessWidget {
     const List<double> f = [30, 17, 20];
     return MaterialApp(
         home: Scaffold(
-            drawer: const NavBar(),
+            drawer: NavBar(context),
             appBar: PreferredSize(
                 preferredSize: const Size.fromHeight(55),
                 child: AppBar(actions: [

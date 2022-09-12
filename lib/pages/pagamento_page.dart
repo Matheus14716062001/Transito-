@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'NavBar.dart';
+import '../Widget/NavBar.dart';
 
 class PagamentoPage extends StatelessWidget {
   const PagamentoPage({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class PagamentoPage extends StatelessWidget {
     const List<double> f = [20, 15];
     return MaterialApp(
         home: Scaffold(
-            drawer: const NavBar(),
+            drawer: NavBar(context),
             appBar: PreferredSize(
                 preferredSize: const Size.fromHeight(55),
                 child: AppBar(actions: [

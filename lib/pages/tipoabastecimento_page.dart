@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project/pages/NavBar.dart';
+import 'package:project/Widget/NavBar.dart';
 
 // ignore: must_be_immutable
 class TipoabastecimentoPage extends StatelessWidget {
@@ -15,7 +15,7 @@ class TipoabastecimentoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-            drawer: const NavBar(),
+            drawer: NavBar(context),
             appBar: PreferredSize(
                 preferredSize: const Size.fromHeight(55),
                 child: AppBar(actions: [

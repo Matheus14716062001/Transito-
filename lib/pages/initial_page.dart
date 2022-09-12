@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../Widget/button.dart';
+import '../Widget/produto_estacoes.dart';
+
 class InitialPage extends StatelessWidget {
   const InitialPage({Key? key}) : super(key: key);
 
@@ -48,6 +51,7 @@ class InitialPage extends StatelessWidget {
             ),
           ),
         ),
+        Button(context)
       ]),
     ));
   }
