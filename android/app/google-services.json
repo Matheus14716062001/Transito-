@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "700211734358",
+    "firebase_url": "https://no-transito-default-rtdb.firebaseio.com",
+    "project_id": "no-transito",
+    "storage_bucket": "no-transito.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700211734358:android:7a1c10e7bc810a193d98f7",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "700211734358-i8bojac2b1raice1191tn3p5sqvdna8i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAz7BMtakz1WBxjQCstRi_vfcmnUnALaAw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "700211734358-i8bojac2b1raice1191tn3p5sqvdna8i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "700211734358-f848q2j4a13o6kps16ugracgthghvltl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.project"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
