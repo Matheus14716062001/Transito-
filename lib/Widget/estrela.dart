@@ -12,9 +12,11 @@ Widget Estrela(BuildContext context, int n_estrela) {
   }
 
   return SizedBox(
-      width: 0.2 * MediaQuery.of(context).size.width,
-      height: 40,
-      child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+    width: 0.2 * MediaQuery.of(context).size.width,
+    height: 40,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
         estrela_prod[0],
         const SizedBox(width: 2),
         estrela_prod[1],
@@ -24,5 +26,7 @@ Widget Estrela(BuildContext context, int n_estrela) {
         estrela_prod[3],
         const SizedBox(width: 2),
         estrela_prod[4],
-      ]));
+      ],
+    ),
+  );
 }

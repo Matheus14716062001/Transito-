@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
 import 'package:project/pages/estacoes_page.dart';
 import 'package:project/pages/fila_page.dart';
 import 'package:project/pages/home_page.dart';
@@ -17,9 +15,6 @@ import 'package:project/pages/visa_page.dart';
 import 'package:project/pages/feedback.dart';
 
 Future<void> main() async {
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
   runApp(MaterialApp(
     // O initialRoute é a primeira rota que é aberta no app
     initialRoute: '/',

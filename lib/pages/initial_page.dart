@@ -16,42 +16,46 @@ class InitialPage extends StatelessWidget {
         primary: Colors.green);
 
     return MaterialApp(
-        home: Scaffold(
-      body: Stack(alignment: Alignment.bottomCenter, children: [
-        const Image(
-          image: AssetImage('./assets/images/homeScreen.png'),
-          fit: BoxFit.cover,
-          width: double.infinity,
-          height: double.infinity,
-        ),
-        Positioned(
-          bottom: 100.0,
-          child: ElevatedButton(
-            onPressed: () => Navigator.pushNamed(context, '/PagamentoPage'),
-            //'/EstacoesPages'
-            ///HomePage
-            style: stylebutton_1,
-            child: const Text(
-              "Login",
-              style: TextStyle(color: Colors.black),
+      home: Scaffold(
+        body: Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            const Image(
+              image: AssetImage('./assets/images/homeScreen.png'),
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
             ),
-          ),
-        ),
-        Positioned(
-          bottom: 100.0,
-          child: ElevatedButton(
-            onPressed: () => Navigator.pushNamed(context, '/HomePage'),
-            //'/EstacoesPages'
-            ///HomePage
-            style: stylebutton_1,
-            child: const Text(
-              "Login",
-              style: TextStyle(color: Colors.black),
+            Positioned(
+              bottom: 100.0,
+              child: ElevatedButton(
+                onPressed: () => Navigator.pushNamed(context, '/PagamentoPage'),
+                //'/EstacoesPages'
+                ///HomePage
+                style: stylebutton_1,
+                child: const Text(
+                  "Login",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
             ),
-          ),
+            Positioned(
+              bottom: 100.0,
+              child: ElevatedButton(
+                onPressed: () => Navigator.pushNamed(context, '/HomePage'),
+                //'/EstacoesPages'
+                ///HomePage
+                style: stylebutton_1,
+                child: const Text(
+                  "Login",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+            ),
+            Button(context)
+          ],
         ),
-        Button(context)
-      ]),
-    ));
+      ),
+    );
   }
 }

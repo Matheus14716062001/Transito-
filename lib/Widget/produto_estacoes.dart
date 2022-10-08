@@ -11,11 +11,11 @@ Widget Produto_estacoes(BuildContext context, Map lista, int index) {
   const double fo = 15;
 
   return Container(
-      height: 85,
-      width: 0.8 * MediaQuery.of(context).size.width,
-      decoration: const BoxDecoration(color: Color.fromARGB(255, 54, 33, 243)),
-      child: Center(
-          child: Row(
+    height: 85,
+    width: 0.8 * MediaQuery.of(context).size.width,
+    decoration: const BoxDecoration(color: Color.fromARGB(255, 54, 33, 243)),
+    child: Center(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Column(
@@ -31,5 +31,7 @@ Widget Produto_estacoes(BuildContext context, Map lista, int index) {
           Text_w('kWh ${lista['kWh']}', fo),
           Button(context)
         ],
-      )));
+      ),
+    ),
+  );
 }

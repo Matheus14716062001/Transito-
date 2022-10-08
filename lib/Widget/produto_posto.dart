@@ -8,11 +8,11 @@ Widget Produto_posto(BuildContext context, Map produto, int index) {
   const double f = 11;
 
   return Container(
-      height: 85,
-      width: 0.8 * MediaQuery.of(context).size.width,
-      decoration: const BoxDecoration(color: Color.fromARGB(255, 54, 33, 243)),
-      child: Center(
-          child: Row(
+    height: 85,
+    width: 0.8 * MediaQuery.of(context).size.width,
+    decoration: const BoxDecoration(color: Color.fromARGB(255, 54, 33, 243)),
+    child: Center(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
           SizedBox(
@@ -46,5 +46,7 @@ Widget Produto_posto(BuildContext context, Map produto, int index) {
                 Navigator.pushNamed(context, '/PagamentoPage');
               }),
         ],
-      )));
+      ),
+    ),
+  );
 }

@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
         ),
         textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         minimumSize: const Size(350, 60),
-        primary: Colors.green);
+        primary: const Color(0xff77FF87));
 
     final ButtonStyle stylebutton_2 = ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
@@ -23,40 +23,44 @@ class HomePage extends StatelessWidget {
         ),
         elevation: 5,
         minimumSize: const Size(350, 60),
-        primary: Colors.yellow);
+        primary: const Color(0xffFEF44E));
 
     return MaterialApp(
-        home: Scaffold(
-      body: Stack(alignment: Alignment.bottomCenter, children: [
-        const Image(
-          image: AssetImage('./assets/images/homeScreen.png'),
-          fit: BoxFit.cover,
-          width: double.infinity,
-          height: double.infinity,
-        ),
-        Positioned(
-          bottom: 100.0,
-          child: ElevatedButton(
-            onPressed: () => Navigator.pushNamed(context, '/LoginPage'),
-            style: stylebutton_1,
-            child: const Text(
-              "Login",
-              style: TextStyle(color: Colors.black),
+      home: Scaffold(
+        body: Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            const Image(
+              image: AssetImage('./assets/images/homeScreen.png'),
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
             ),
-          ),
-        ),
-        Positioned(
-          bottom: 30.0,
-          child: ElevatedButton(
-            onPressed: () => Navigator.pushNamed(context, '/CadastrarPage'),
-            style: stylebutton_2,
-            child: const Text(
-              "Cadastrar",
-              style: TextStyle(color: Colors.black),
+            Positioned(
+              bottom: 100.0,
+              child: ElevatedButton(
+                onPressed: () => Navigator.pushNamed(context, '/LoginPage'),
+                style: stylebutton_1,
+                child: const Text(
+                  "Login",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
             ),
-          ),
+            Positioned(
+              bottom: 30.0,
+              child: ElevatedButton(
+                onPressed: () => Navigator.pushNamed(context, '/CadastrarPage'),
+                style: stylebutton_2,
+                child: const Text(
+                  "Cadastrar",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+            ),
+          ],
         ),
-      ]),
-    ));
+      ),
+    );
   }
 }

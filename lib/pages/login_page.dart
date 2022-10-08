@@ -1,42 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:project/sing_up/sing_up_service.dart';
+import '../Widget/voltar.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    const List<String> email = ["123456", "234567", "345678", "456789", "1"];
-    const List<String> senha = ["123456", "234567", "345678", "456789", "1"];
-    bool validador = false;
     TextEditingController dadoEmail = TextEditingController();
     TextEditingController dadoSenha = TextEditingController();
     final Emailkey = GlobalKey<FormFieldState>();
     final Senhakey = GlobalKey<FormFieldState>();
     // ignore: non_constant_identifier_names
-    var voltar = Row(children: [
-      ElevatedButton.icon(
-          icon: const Icon(Icons.arrow_back_rounded),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          label: const Text('voltar'))
-    ]);
-
-    void resetar() {
-      dadoEmail.text = '';
-      dadoSenha.text = '';
-    }
-
-    void Validador() {}
-
     final ButtonStyle stylebutton_1 = ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
         ),
         textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         minimumSize: const Size(350, 60),
-        primary: Colors.green);
+        primary: const Color(0xff77FF87));
+
+    void resetar() {
+      dadoEmail.text = '';
+      dadoSenha.text = '';
+    }
 
     return MaterialApp(
       home: Scaffold(
@@ -49,9 +36,8 @@ class LoginPage extends StatelessWidget {
               width: double.infinity,
               height: double.infinity,
             ),
-            Center(
-              heightFactor: double.infinity,
-              widthFactor: double.infinity,
+            SizedBox(
+              width: 0.8 * MediaQuery.of(context).size.width,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -59,10 +45,18 @@ class LoginPage extends StatelessWidget {
                   TextFormField(
                     key: Emailkey,
                     decoration: const InputDecoration(
-                      icon: Icon(Icons.person),
                       hintText: 'Enter your best email',
                       labelText: 'Email',
-                      border: OutlineInputBorder(),
+                      labelStyle: TextStyle(
+                        fontSize: 12,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                        ),
+                      ),
                       errorBorder: OutlineInputBorder(
                           borderSide:
                               BorderSide(color: Colors.blue, width: 30)),
@@ -73,44 +67,50 @@ class LoginPage extends StatelessWidget {
                     },
                     controller: dadoEmail,
                     validator: (String? value) {
-                      if ((value == null) || (validador == false)) {
+                      if ((value == null)) {
                         return 'Email invalida';
                       }
                     },
                   ),
                   const SizedBox(height: 20),
                   TextFormField(
-                      key: Senhakey,
-                      decoration: const InputDecoration(
-                        icon: Icon(Icons.person),
-                        labelText: 'Senha',
-                        border: OutlineInputBorder(),
-                        errorBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.blue, width: 30)),
+                    key: Senhakey,
+                    decoration: const InputDecoration(
+                      labelText: 'Senha',
+                      labelStyle: TextStyle(
+                        fontSize: 12,
+                        color: Color.fromARGB(255, 255, 255, 255),
                       ),
-                      onSaved: (String? value) {
-                        // This optional block of code can be used to run
-                        // code when the user saves the form.
-                      },
-                      controller: dadoSenha,
-                      validator: (String? value) {
-                        if ((value == null) || (validador == false)) {
-                          return 'Senha invalida';
-                        }
-                      }),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.blue, width: 30)),
+                    ),
+                    onSaved: (String? value) {
+                      // This optional block of code can be used to run
+                      // code when the user saves the form.
+                    },
+                    controller: dadoSenha,
+                    validator: (String? value) {
+                      if ((value == null)) {
+                        return 'Senha invalida';
+                      }
+                    },
+                  ),
                   const SizedBox(height: 10),
-                  voltar,
+                  voltar(context),
                   const SizedBox(height: 40),
                   ElevatedButton(
                     onPressed: () => {
-                      Validador(),
                       Emailkey.currentState?.validate(),
                       Senhakey.currentState?.validate(),
-                      if (validador == true)
-                        {Navigator.pushNamed(context, '/TipoabastecimentoPage')}
-                      else
-                        {resetar()}
+                      resetar(),
+                      Navigator.pushNamed(context, '/TipoabastecimentoPage')
                     },
                     style: stylebutton_1,
                     child: const Text(
