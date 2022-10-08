@@ -56,75 +56,123 @@ class VisaPage extends StatelessWidget {
                 Text_c(
                     context, 'Valor Total :  181,50', f[0], w[2], 0.8, cor[0]),
                 SizedBox(height: e[1] * MediaQuery.of(context).size.height),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    icon: Icon(Icons.person),
-                    labelText: 'Número do cartão',
-                    border: OutlineInputBorder(),
-                    errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 30)),
+                SizedBox(
+                  width: 0.8 * MediaQuery.of(context).size.width,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Número do cartão',
+                      labelStyle: TextStyle(
+                        fontSize: 12,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.blue, width: 30)),
+                    ),
+                    onSaved: (String? value) {
+                      // This optional block of code can be used to run
+                      // code when the user saves the form.
+                    },
+                    //controller: ,
+                    validator: (String? value) {
+                      //if ((value == null) || (validador == false)) {
+                      // return 'Email invalida';
+                      //}
+                    },
                   ),
-                  onSaved: (String? value) {
-                    // This optional block of code can be used to run
-                    // code when the user saves the form.
-                  },
-                  //controller: ,
-                  validator: (String? value) {
-                    //if ((value == null) || (validador == false)) {
-                    // return 'Email invalida';
-                    //}
-                  },
                 ),
                 SizedBox(height: e[1] * MediaQuery.of(context).size.height),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    icon: Icon(Icons.person),
-                    labelText: 'Nome',
-                    border: OutlineInputBorder(),
-                    errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 30)),
+                SizedBox(
+                  width: 0.8 * MediaQuery.of(context).size.width,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Nome',
+                      labelStyle: TextStyle(
+                        fontSize: 12,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.blue, width: 30)),
+                    ),
+                    onSaved: (String? value) {
+                      // This optional block of code can be used to run
+                      // code when the user saves the form.
+                    },
+                    //controller: ,
+                    validator: (String? value) {
+                      //if ((value == null) || (validador == false)) {
+                      // return 'Email invalida';
+                      //}
+                    },
                   ),
-                  onSaved: (String? value) {
-                    // This optional block of code can be used to run
-                    // code when the user saves the form.
-                  },
-                  //controller: ,
-                  validator: (String? value) {
-                    //if ((value == null) || (validador == false)) {
-                    // return 'Email invalida';
-                    //}
-                  },
                 ),
                 SizedBox(height: e[1] * MediaQuery.of(context).size.height),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    icon: Icon(Icons.person),
-                    labelText: 'Validade',
-                    border: OutlineInputBorder(),
-                    errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.blue, width: 30)),
+                SizedBox(
+                  width: 0.8 * MediaQuery.of(context).size.width,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Validade',
+                      labelStyle: TextStyle(
+                        fontSize: 12,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                        ),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.blue, width: 30)),
+                    ),
+                    onSaved: (String? value) {
+                      // This optional block of code can be used to run
+                      // code when the user saves the form.
+                    },
+                    //controller: ,
+                    validator: (String? value) {
+                      //if ((value == null) || (validador == false)) {
+                      // return 'Email invalida';
+                      //}
+                    },
                   ),
-                  onSaved: (String? value) {
-                    // This optional block of code can be used to run
-                    // code when the user saves the form.
-                  },
-                  //controller: ,
-                  validator: (String? value) {
-                    //if ((value == null) || (validador == false)) {
-                    // return 'Email invalida';
-                    //}
-                  },
                 ),
                 SizedBox(height: e[1] * MediaQuery.of(context).size.height),
                 Row(
                   children: [
                     SizedBox(
-                      width: 0.5 * MediaQuery.of(context).size.width,
+                      width: 0.1 * MediaQuery.of(context).size.width,
+                    ),
+                    SizedBox(
+                      width: 0.35 * MediaQuery.of(context).size.width,
                       child: TextFormField(
                         decoration: const InputDecoration(
-                          icon: Icon(Icons.person),
                           labelText: 'Validade',
-                          border: OutlineInputBorder(),
+                          labelStyle: TextStyle(
+                            fontSize: 12,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20.0)),
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                            ),
+                          ),
                           errorBorder: OutlineInputBorder(
                               borderSide:
                                   BorderSide(color: Colors.blue, width: 30)),
@@ -141,14 +189,25 @@ class VisaPage extends StatelessWidget {
                         },
                       ),
                     ),
-                    SizedBox(height: e[1] * MediaQuery.of(context).size.height),
                     SizedBox(
-                      width: 0.5 * MediaQuery.of(context).size.width,
+                      width: 0.1 * MediaQuery.of(context).size.width,
+                    ),
+                    SizedBox(
+                      width: 0.35 * MediaQuery.of(context).size.width,
                       child: TextFormField(
                         decoration: const InputDecoration(
-                          icon: Icon(Icons.person),
                           labelText: 'Código de segurança',
-                          border: OutlineInputBorder(),
+                          labelStyle: TextStyle(
+                            fontSize: 12,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20.0)),
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                            ),
+                          ),
                           errorBorder: OutlineInputBorder(
                               borderSide:
                                   BorderSide(color: Colors.blue, width: 30)),

@@ -7,7 +7,7 @@ class PagamentoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const List<double> w = [0.8, 0.6, 0.35, 0.20, 0.045, 0.04];
+    const List<double> w = [0.8, 0.70, 0.35, 0.20, 0.045, 0.04];
     const List<double> e = [0.05, 0.04, 0.03, 0.20];
     const List<double> f = [20, 15];
     return MaterialApp(
@@ -94,6 +94,10 @@ class PagamentoPage extends StatelessWidget {
                   child: TextFormField(
                     decoration: const InputDecoration(
                       labelText: 'QUANTIDADE DESEJADA:',
+                      labelStyle: TextStyle(
+                        fontSize: 12,
+                        color: Color.fromARGB(255, 255, 255, 255),
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(20.0)),
                         borderSide: BorderSide(
@@ -153,7 +157,9 @@ class PagamentoPage extends StatelessWidget {
                   child: Center(
                     child: Text(
                       'SELECIONE O TIPO DE PAGAMENTO',
-                      style: TextStyle(color: Colors.black, fontSize: f[0]),
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          fontSize: f[0]),
                       textAlign: TextAlign.center,
                     ),
                   ),
