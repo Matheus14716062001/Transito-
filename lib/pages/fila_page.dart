@@ -14,13 +14,16 @@ class FilaPage extends StatelessWidget {
       home: Scaffold(
         drawer: NavBar(context),
         appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(55),
-            child: AppBar(actions: [
+          preferredSize: const Size.fromHeight(55),
+          child: AppBar(
+            actions: [
               SizedBox(
                 width: 55,
                 child: Image.asset('./assets/images/logoPage.png'),
               )
-            ])),
+            ],
+          ),
+        ),
         body: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
