@@ -1,64 +1,50 @@
 import 'package:flutter/material.dart';
 
+import '../Modules/cor.dart';
+import '../Widget/button_g.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle stylebutton_1 = ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        minimumSize: const Size(350, 60),
-        primary: const Color(0xff77FF87));
-
-    final ButtonStyle stylebutton_2 = ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        textStyle: const TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
-        elevation: 5,
-        minimumSize: const Size(350, 60),
-        primary: const Color(0xffFEF44E));
-
     return MaterialApp(
       home: Scaffold(
-        body: Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            const Image(
-              image: AssetImage('./assets/images/homeScreen.png'),
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('./assets/images/fundoPage.png'),
               fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
             ),
-            Positioned(
-              bottom: 100.0,
-              child: ElevatedButton(
-                onPressed: () => Navigator.pushNamed(context, '/LoginPage'),
-                style: stylebutton_1,
-                child: const Text(
-                  "Login",
-                  style: TextStyle(color: Colors.black),
-                ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                './assets/images/logopage.png',
+                alignment: Alignment.topCenter,
+                height: 0.5 * MediaQuery.of(context).size.height,
+                width: 0.8 * MediaQuery.of(context).size.width,
               ),
-            ),
-            Positioned(
-              bottom: 30.0,
-              child: ElevatedButton(
-                onPressed: () => Navigator.pushNamed(context, '/CadastrarPage'),
-                style: stylebutton_2,
-                child: const Text(
-                  "Cadastrar",
-                  style: TextStyle(color: Colors.black),
-                ),
+              Button_g(
+                tex: 'Login',
+                context_: context,
+                navegacao: '/LoginPage',
+                cor: cor[0],
               ),
-            ),
-          ],
+              const SizedBox(
+                height: 20,
+              ),
+              Button_g(
+                cor: cor[1],
+                tex: 'Cadastrar',
+                context_: context,
+                navegacao: '/CadastrarPage',
+              ),
+            ],
+          ),
         ),
       ),
     );

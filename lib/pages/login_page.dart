@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project/sing_up/sing_up_service.dart';
+import '../Modules/cor.dart';
+import '../Widget/button_g.dart';
+import '../Widget/custTefromField.dart';
 import '../Widget/voltar.dart';
 
 class LoginPage extends StatelessWidget {
@@ -11,117 +13,55 @@ class LoginPage extends StatelessWidget {
     TextEditingController dadoSenha = TextEditingController();
     final Emailkey = GlobalKey<FormFieldState>();
     final Senhakey = GlobalKey<FormFieldState>();
-    // ignore: non_constant_identifier_names
-    final ButtonStyle stylebutton_1 = ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        minimumSize: const Size(350, 60),
-        primary: const Color(0xff77FF87));
-
-    void resetar() {
-      dadoEmail.text = '';
-      dadoSenha.text = '';
-    }
-
+    const List<double> e = [0.05];
     return MaterialApp(
       home: Scaffold(
-        body: Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            const Image(
-              image: AssetImage('./assets/images/homePage.png'),
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('./assets/images/fundoPage.png'),
               fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
             ),
-            SizedBox(
-              width: 0.8 * MediaQuery.of(context).size.width,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                './assets/images/logoPage.png',
+                alignment: Alignment.topCenter,
+                //height: w[4] * MediaQuery.of(context).size.height,
+                width: 0.8 * MediaQuery.of(context).size.width,
+                height: 0.4 * MediaQuery.of(context).size.height,
+              ),
+              SizedBox(height: e[0] * MediaQuery.of(context).size.height),
+              Cust_Texformfield(
+                  dado: dadoEmail,
+                  label: 'Email',
+                  key_: Emailkey,
+                  hint: 'Digite o seu Email'),
+              SizedBox(height: e[0] * MediaQuery.of(context).size.height),
+              Cust_Texformfield(
+                  dado: dadoSenha,
+                  label: 'Senha',
+                  key_: Senhakey,
+                  hint: 'Digite a sua senha'),
+              SizedBox(height: e[0] * MediaQuery.of(context).size.height),
+              Row(
                 children: [
-                  const SizedBox(height: 190),
-                  TextFormField(
-                    key: Emailkey,
-                    decoration: const InputDecoration(
-                      hintText: 'Enter your best email',
-                      labelText: 'Email',
-                      labelStyle: TextStyle(
-                        fontSize: 12,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                        ),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.blue, width: 30)),
-                    ),
-                    onSaved: (String? value) {
-                      // This optional block of code can be used to run
-                      // code when the user saves the form.
-                    },
-                    controller: dadoEmail,
-                    validator: (String? value) {
-                      if ((value == null)) {
-                        return 'Email invalida';
-                      }
-                    },
-                  ),
-                  const SizedBox(height: 20),
-                  TextFormField(
-                    key: Senhakey,
-                    decoration: const InputDecoration(
-                      labelText: 'Senha',
-                      labelStyle: TextStyle(
-                        fontSize: 12,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                        ),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.blue, width: 30)),
-                    ),
-                    onSaved: (String? value) {
-                      // This optional block of code can be used to run
-                      // code when the user saves the form.
-                    },
-                    controller: dadoSenha,
-                    validator: (String? value) {
-                      if ((value == null)) {
-                        return 'Senha invalida';
-                      }
-                    },
-                  ),
-                  const SizedBox(height: 10),
+                  SizedBox(width: 0.1 * MediaQuery.of(context).size.width),
                   voltar(context),
-                  const SizedBox(height: 40),
-                  ElevatedButton(
-                    onPressed: () => {
-                      Emailkey.currentState?.validate(),
-                      Senhakey.currentState?.validate(),
-                      resetar(),
-                      Navigator.pushNamed(context, '/TipoabastecimentoPage')
-                    },
-                    style: stylebutton_1,
-                    child: const Text(
-                      "Login",
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ),
                 ],
               ),
-            )
-          ],
+              SizedBox(height: e[0] * MediaQuery.of(context).size.height),
+              Button_g(
+                  tex: 'Login',
+                  context_: context,
+                  navegacao: '/TipoabastecimentoPage',
+                  cor: cor[0]),
+            ],
+          ),
         ),
       ),
     );

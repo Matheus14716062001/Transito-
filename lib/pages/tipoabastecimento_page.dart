@@ -1,18 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:project/Widget/NavBar.dart';
+import '../Modules/carro.dart';
+import '../Modules/cor.dart';
+import '../Modules/dado_carro.dart';
+import '../Widget/button_g.dart';
+import '../Widget/buuton_ima.dart';
 
-// ignore: must_be_immutable
-class TipoabastecimentoPage extends StatelessWidget {
+class TipoabastecimentoPage extends StatefulWidget {
   TipoabastecimentoPage({Key? key}) : super(key: key);
-  double w_1 = 0.32;
-  double w_2 = 0.05;
-  double w_3 = 0.04;
-  double e_1 = 0.04;
-  double e_2 = 0.03;
-  double e_3 = 0.015;
+
+  @override
+  State<TipoabastecimentoPage> createState() => _TipoabastecimentoPageState();
+}
+
+class _TipoabastecimentoPageState extends State<TipoabastecimentoPage> {
+  final List w = [0.32];
+  final List e = [0.03, 0.01, 0.2];
+  int cont = 0;
+  late Carro carro_1 = carro[cont];
+  void carro_selecionado() {
+    setState(() {
+      cont++;
+      if (cont < carro.length) {
+        carro_1 = carro[cont];
+      } else {
+        cont = 0;
+        carro_1 = carro[cont];
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    final ButtonStyle stylebutton = ElevatedButton.styleFrom(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        backgroundColor: cor[0],
+        textStyle: const TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+        elevation: 5,
+        minimumSize: Size(0.6 * MediaQuery.of(context).size.width, 30));
     return MaterialApp(
       home: Scaffold(
         drawer: NavBar(context),
@@ -25,128 +55,98 @@ class TipoabastecimentoPage extends StatelessWidget {
             ],
           ),
         ),
-        body: Center(
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('./assets/images/fundoPage.png'),
-                fit: BoxFit.cover,
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('./assets/images/fundoPage.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Column(
+            children: [
+              SizedBox(height: e[0] * MediaQuery.of(context).size.height),
+              Container(
+                height: w[0] * MediaQuery.of(context).size.height,
+                width: 0.8 * MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  color: cor[2],
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(34.0),
+                    topRight: Radius.circular(34.0),
+                    bottomLeft: Radius.circular(34.0),
+                    bottomRight: Radius.circular(34.0),
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    IconButton(
+                      onPressed: () => carro_selecionado(),
+                      icon: const Icon(Icons.arrow_back_sharp, size: 42),
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          './assets/images/carro.png',
+                          alignment: Alignment.topCenter,
+                          width: 0.6 * MediaQuery.of(context).size.width,
+                          height: 0.2 * MediaQuery.of(context).size.height,
+                        ),
+                        Text(
+                          carro_1.modelo,
+                          style: const TextStyle(
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              fontSize: 16),
+                          textAlign: TextAlign.center,
+                        ),
+                        SizedBox(
+                            height: e[1] * MediaQuery.of(context).size.height),
+                        ElevatedButton(
+                          onPressed: () =>
+                              Navigator.pushNamed(context, '/ConsumoPage'),
+                          style: stylebutton,
+                          child: const Text(
+                            'Detalhes do consumo',
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
+                      ],
+                    ),
+                    IconButton(
+                      onPressed: () => carro_selecionado(),
+                      icon: const Icon(Icons.arrow_forward_sharp, size: 42),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            child: Column(
-              children: [
-                SizedBox(height: e_1 * MediaQuery.of(context).size.height),
-                Container(
-                  height: w_2 * MediaQuery.of(context).size.height,
-                  width: 0.8 * MediaQuery.of(context).size.width,
-                  decoration: const BoxDecoration(
-                    color: Color.fromARGB(202, 95, 150, 246),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20.0),
-                      topRight: Radius.circular(20.0),
-                      bottomLeft: Radius.circular(20.0),
-                      bottomRight: Radius.circular(20.0),
-                    ),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      'SELECIONE O TIPO DE ABASTECIMENTO',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                SizedBox(height: e_2 * MediaQuery.of(context).size.height),
-                Container(
-                  height: w_3 * MediaQuery.of(context).size.height,
-                  width: 0.8 * MediaQuery.of(context).size.width,
-                  decoration: const BoxDecoration(
-                    color: Colors.yellow,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20.0),
-                      topRight: Radius.circular(20.0),
-                      bottomLeft: Radius.circular(20.0),
-                      bottomRight: Radius.circular(20.0),
-                    ),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      'Elétrico',
-                      style: TextStyle(
-                        color: Colors.black,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                SizedBox(height: e_3 * MediaQuery.of(context).size.height),
-                SizedBox(
-                  height: w_1 * MediaQuery.of(context).size.height,
-                  width: 0.6 * MediaQuery.of(context).size.width,
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.all(Radius.circular(30)),
-                    child: ColoredBox(
-                      color: Colors.white,
-                      child: SizedBox(
-                        width: 0.5 * MediaQuery.of(context).size.width,
-                        height:
-                            (w_1 - 0.05) * MediaQuery.of(context).size.height,
-                        child: IconButton(
-                          icon: Image.asset('./assets/images/eletrico.png'),
-                          iconSize: 90,
-                          onPressed: () =>
-                              Navigator.pushNamed(context, '/EstacoesPage'),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 25),
-                Container(
-                  width: 0.8 * MediaQuery.of(context).size.width,
-                  height: w_3 * MediaQuery.of(context).size.height,
-                  decoration: const BoxDecoration(
-                    color: Colors.yellow,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20.0),
-                      topRight: Radius.circular(20.0),
-                      bottomLeft: Radius.circular(20.0),
-                      bottomRight: Radius.circular(20.0),
-                    ),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      'Combustível',
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                SizedBox(height: e_3 * MediaQuery.of(context).size.height),
-                Center(
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.all(Radius.circular(30)),
-                    child: ColoredBox(
-                      color: Colors.white,
-                      child: SizedBox(
-                        width: 0.6 * MediaQuery.of(context).size.width,
-                        height:
-                            (w_1 - 0.05) * MediaQuery.of(context).size.height,
-                        child: IconButton(
-                          icon: Image.asset('./assets/images/combustivel.png'),
-                          iconSize: 90,
-                          onPressed: () =>
-                              Navigator.pushNamed(context, '/PostoPage'),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              SizedBox(height: e[0] * MediaQuery.of(context).size.height),
+              const Text(
+                'Conferir postos mais próximos',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 255, 255, 255), fontSize: 20),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: e[0] * MediaQuery.of(context).size.height),
+              Row(
+                children: [
+                  SizedBox(width: 0.1 * MediaQuery.of(context).size.width),
+                  Button_ima(
+                      cor: cor[0], image: './assets/images/logoPage.png', w: 3),
+                  SizedBox(width: e[2] * MediaQuery.of(context).size.width),
+                  Button_ima(
+                      cor: cor[0], image: './assets/images/logoPage.png', w: 3)
+                ],
+              ),
+              SizedBox(height: e[0] * MediaQuery.of(context).size.height),
+              Button_g(
+                cor: cor[1],
+                tex: 'Convidar amigos',
+                context_: context,
+                navegacao: '/SinginupPage',
+              ),
+            ],
           ),
         ),
       ),

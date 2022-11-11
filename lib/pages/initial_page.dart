@@ -1,59 +1,40 @@
 import 'package:flutter/material.dart';
 
-import '../Widget/button.dart';
+import '../Modules/cor.dart';
+import '../Widget/button_g.dart';
 
 class InitialPage extends StatelessWidget {
   const InitialPage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle stylebutton_1 = ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        minimumSize: const Size(350, 60),
-        primary: Colors.green);
-
     return MaterialApp(
       home: Scaffold(
-        body: Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            const Image(
-              image: AssetImage('./assets/images/homeScreen.png'),
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('./assets/images/fundoPage.png'),
               fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
             ),
-            Positioned(
-              bottom: 100.0,
-              child: ElevatedButton(
-                onPressed: () => Navigator.pushNamed(context, '/PagamentoPage'),
-                //'/EstacoesPages'
-                ///HomePage
-                style: stylebutton_1,
-                child: const Text(
-                  "Login",
-                  style: TextStyle(color: Colors.black),
-                ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                './assets/images/logopage.png',
+                alignment: Alignment.topCenter,
+                height: 0.5 * MediaQuery.of(context).size.height,
+                width: 0.8 * MediaQuery.of(context).size.width,
               ),
-            ),
-            Positioned(
-              bottom: 100.0,
-              child: ElevatedButton(
-                onPressed: () => Navigator.pushNamed(context, '/HomePage'),
-                //'/EstacoesPages'
-                ///HomePage
-                style: stylebutton_1,
-                child: const Text(
-                  "Login",
-                  style: TextStyle(color: Colors.black),
-                ),
+              Button_g(
+                cor: cor[1],
+                tex: '11111111',
+                context_: context,
+                navegacao: '/HomePage',
               ),
-            ),
-            Button(context)
-          ],
+            ],
+          ),
         ),
       ),
     );
