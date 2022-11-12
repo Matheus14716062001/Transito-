@@ -5,9 +5,9 @@ Widget voltar(BuildContext context) {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0),
       ),
+      backgroundColor: Colors.transparent,
       textStyle: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-      minimumSize: const Size(60, 30),
-      primary: Colors.transparent);
+      minimumSize: const Size(60, 30));
   return Row(
     children: [
       ElevatedButton.icon(

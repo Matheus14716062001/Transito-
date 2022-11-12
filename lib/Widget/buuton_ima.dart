@@ -4,10 +4,14 @@ class Button_ima extends StatelessWidget {
   String image;
   Color cor;
   int w;
+  String navegacao;
+  BuildContext context_;
   Button_ima({
     required this.image,
     required this.cor,
     required this.w,
+    required this.navegacao,
+    required this.context_,
   });
   @override
   Widget build(BuildContext context) {
@@ -19,7 +23,7 @@ class Button_ima extends StatelessWidget {
         child: IconButton(
           icon: Image.asset(image),
           iconSize: 90,
-          onPressed: () => Navigator.pushNamed(context, '/VisaPage'),
+          onPressed: () => Navigator.pushNamed(context_, navegacao),
         ),
       ),
     );

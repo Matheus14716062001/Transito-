@@ -102,7 +102,7 @@ class _Cadastrar_carroPageState extends State<Cadastrar_carroPage> {
                   Button_g(
                     tex: 'Salvar',
                     context_: context,
-                    navegacao: '/LoginPage',
+                    navegacao: '/ConsumoPage',
                     cor: cor[0],
                   ),
                   SizedBox(height: e[0] * MediaQuery.of(context).size.height),

@@ -133,10 +133,20 @@ class _TipoabastecimentoPageState extends State<TipoabastecimentoPage> {
                 children: [
                   SizedBox(width: 0.1 * MediaQuery.of(context).size.width),
                   Button_ima(
-                      cor: cor[0], image: './assets/images/logoPage.png', w: 3),
+                    cor: cor[3],
+                    image: './assets/images/combustivel.png',
+                    w: 3,
+                    navegacao: '/EstacoesPage',
+                    context_: context,
+                  ),
                   SizedBox(width: e[2] * MediaQuery.of(context).size.width),
                   Button_ima(
-                      cor: cor[0], image: './assets/images/logoPage.png', w: 3)
+                    cor: cor[3],
+                    image: './assets/images/eletrico.png',
+                    w: 3,
+                    navegacao: '/PostoPage',
+                    context_: context,
+                  )
                 ],
               ),
               SizedBox(height: e[0] * MediaQuery.of(context).size.height),
