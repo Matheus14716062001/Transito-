@@ -5,11 +5,9 @@ Widget NavBar(BuildContext context) {
     child: ListView(
       padding: EdgeInsets.zero,
       children: <Widget>[
-        UserAccountsDrawerHeader(
-          accountName: const Text('Nome'),
-          accountEmail: const Text('Email'),
-          currentAccountPicture:
-              CircleAvatar(child: Image.asset('./assets/images/logoPage.png')),
+        const UserAccountsDrawerHeader(
+          accountName: Text('Nome'),
+          accountEmail: Text('Email'),
         ),
         ListTile(
           leading: const Icon(Icons.favorite),
@@ -18,27 +16,22 @@ Widget NavBar(BuildContext context) {
         ),
         ListTile(
           leading: const Icon(Icons.favorite),
-          title: const Text('/PixPage'),
-          onTap: () => {Navigator.pushNamed(context, '/PixPage')},
+          title: const Text('Posto salvos'),
+          onTap: () => {Navigator.pushNamed(context, '/posto_s_page')},
         ),
         ListTile(
           leading: const Icon(Icons.favorite),
-          title: const Text('/PagamentoPage'),
-          onTap: () => {Navigator.pushNamed(context, '/PagamentoPage')},
-        ),
-        ListTile(
-          leading: const Icon(Icons.favorite),
-          title: const Text('/FilaPage'),
+          title: const Text('Fast Pass'),
           onTap: () => {Navigator.pushNamed(context, '/FilaPage')},
         ),
         ListTile(
           leading: const Icon(Icons.favorite),
-          title: const Text('/VisaPage'),
-          onTap: () => {Navigator.pushNamed(context, '/VisaPage')},
+          title: const Text('Ajuda e feedback'),
+          onTap: () => {Navigator.pushNamed(context, '/FeedbackPage')},
         ),
         ListTile(
           leading: const Icon(Icons.favorite),
-          title: const Text('/FeedbackPage'),
+          title: const Text('Convidar amigos'),
           onTap: () => {Navigator.pushNamed(context, '/FeedbackPage')},
         ),
       ],

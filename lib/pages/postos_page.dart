@@ -12,7 +12,7 @@ class PostoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     ;
 
-    const List<double> w = [0.8, 0.04];
+    const List<double> w = [0.8, 0.05];
 
     const List<double> f = [24];
     return MaterialApp(

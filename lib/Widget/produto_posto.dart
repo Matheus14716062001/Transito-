@@ -30,7 +30,7 @@ class produtoposto extends StatelessWidget {
     );
 
     return ElevatedButton(
-      onPressed: () => Navigator.pushNamed(context_, '/MapaPage'),
+      onPressed: () => Navigator.pushNamed(context_, '/PagamentoPage'),
       style: stylebutton,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -68,11 +68,11 @@ class produtoposto extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text_w('Gasolina: , ${lista.gasolina}', fo[1]),
-                SizedBox(height: 0.03 * MediaQuery.of(context).size.height),
+                SizedBox(height: 0.01 * MediaQuery.of(context).size.height),
                 Text_w('Gasolina Adtv: ${lista.gasolinaaditivada}', fo[1]),
-                SizedBox(height: 0.03 * MediaQuery.of(context).size.height),
+                SizedBox(height: 0.01 * MediaQuery.of(context).size.height),
                 Text_w('Gás: ${lista.gas}', fo[1]),
-                SizedBox(height: 0.03 * MediaQuery.of(context).size.height),
+                SizedBox(height: 0.01 * MediaQuery.of(context).size.height),
                 Text_w('Álcool: ${lista.alcool}', fo[1]),
               ],
             ),

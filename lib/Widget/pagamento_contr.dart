@@ -1,21 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:project/Widget/icon.dart';
+import 'package:project/Modules/pagamento.dart';
 import 'package:project/Widget/text_w.dart';
 import '../Modules/cor.dart';
-import '../Modules/estacoes.dart';
-import 'estrela.dart';
 
-class produtoestacoes extends StatelessWidget {
+class Seltpagamento extends StatelessWidget {
   BuildContext context_;
-  Estacoes lista;
 
-  produtoestacoes({
+  Pagamento pag;
+
+  Seltpagamento({
     super.key,
     required this.context_,
-    required this.lista,
+    required this.pag,
   });
   static const List<double> I = [25, 20];
-  static const List<double> fo = [14, 12];
+  static const List<double> fo = [20, 12];
+  Widget tipo = const SizedBox(
+    width: 0.001,
+  );
+  Widget Tipo_cartao(BuildContext context) {
+    if (pag.tipo == 0) {
+      return tipo = Image.asset(
+        './assets/images/visa.png',
+        alignment: Alignment.topCenter,
+        //height: w[4] * MediaQuery.of(context).size.height,
+        width: 0.8 * MediaQuery.of(context).size.width,
+      );
+    } else {
+      return tipo = Image.asset(
+        './assets/images/visa.png',
+        alignment: Alignment.topCenter,
+        //height: w[4] * MediaQuery.of(context).size.height,
+        width: 0.8 * MediaQuery.of(context).size.width,
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +49,7 @@ class produtoestacoes extends StatelessWidget {
     );
 
     return ElevatedButton(
-      onPressed: () => Navigator.pushNamed(context_, '/PagamentoPage'),
+      onPressed: () => Navigator.pushNamed(context_, '/MapaPage'),
       style: stylebutton,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -40,31 +59,24 @@ class produtoestacoes extends StatelessWidget {
             alignment: Alignment.topLeft,
             child: Column(
               children: [
-                Row(children: [
-                  Text_w(' ${lista.nome}', fo[0]),
-                  Estrela(context, lista.estrela)
-                ]),
                 SizedBox(
                   width: 0.43 * MediaQuery.of(context).size.width,
-                  child: Text_w(' ${lista.endereco}', fo[1]),
+                  child: Text_w('Nome: ${pag.nome}', fo[1]),
                 ),
-                Container(
+                SizedBox(
                   width: 0.43 * MediaQuery.of(context).size.width,
-                  alignment: Alignment.topLeft,
-                  child: iconsalva(
-                    lista: lista,
-                  ),
+                  child: Text_w('Número do Cartão: ${pag.numero}', fo[1]),
                 ),
               ],
             ),
           ),
           SizedBox(
-            width: 0.03 * MediaQuery.of(context).size.width,
+            width: 0.03 * MediaQuery.of(context_).size.width,
           ),
           Container(
-            width: 0.25 * MediaQuery.of(context).size.width,
+            width: 0.25 * MediaQuery.of(context_).size.width,
             alignment: Alignment.centerLeft,
-            child: Text_w('kWh - ${lista.kwh}', fo[1]),
+            child: Tipo_cartao(context),
           )
         ],
       ),

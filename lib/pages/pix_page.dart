@@ -14,9 +14,9 @@ class PixPage extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
         ),
+        backgroundColor: Colors.green,
         textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        minimumSize: const Size(350, 60),
-        primary: Colors.green);
+        minimumSize: const Size(350, 60));
     return MaterialApp(
       home: Scaffold(
         drawer: NavBar(context),

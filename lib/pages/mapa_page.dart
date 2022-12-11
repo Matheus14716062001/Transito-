@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:project/Modules/cor.dart';
+import 'package:project/Widget/button_g.dart';
 import '../Widget/NavBar.dart';
 
-class MapaPage extends StatelessWidget {
+class MapaPage extends StatefulWidget {
   const MapaPage({Key? key}) : super(key: key);
 
+  @override
+  State<MapaPage> createState() => _MapaPageState();
+}
+
+class _MapaPageState extends State<MapaPage> {
   @override
   Widget build(BuildContext context) {
     const List<double> w = [0.55, 0.25, 0.03];
@@ -32,6 +39,11 @@ class MapaPage extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
+          child: Button_g(
+              tex: '-->',
+              context_: context,
+              navegacao: '/TipoabastecimentoPage',
+              cor: cor[0]),
         ),
       ),
     );

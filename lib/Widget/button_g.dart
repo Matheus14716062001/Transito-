@@ -5,12 +5,20 @@ class Button_g extends StatelessWidget {
   String tex;
   String navegacao;
   Color cor;
-  Button_g(
-      {super.key,
-      required this.context_,
-      required this.tex,
-      required this.navegacao,
-      required this.cor});
+  Button_g({
+    super.key,
+    required this.context_,
+    required this.tex,
+    required this.navegacao,
+    required this.cor,
+  });
+  int cont = 1;
+  void teste() {
+    if (cont == 1) {
+      cadastrar();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final ButtonStyle stylebutton = ElevatedButton.styleFrom(
@@ -25,12 +33,11 @@ class Button_g extends StatelessWidget {
       elevation: 5,
       minimumSize: Size(0.8 * MediaQuery.of(context).size.width, 45),
     );
-    //MediaQuery.of(context).size.height,
-    // MediaQuery.of(context).size.width,
+
     return Column(
       children: [
         ElevatedButton(
-          onPressed: () => Navigator.pushNamed(context_, navegacao),
+          onPressed: () => {Navigator.pushNamed(context_, navegacao)},
           style: stylebutton,
           child: Text(
             tex,
@@ -41,3 +48,5 @@ class Button_g extends StatelessWidget {
     );
   }
 }
+
+void cadastrar() {}

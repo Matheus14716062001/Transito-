@@ -6,4 +6,5 @@ const List<Color> cor = [
   Color.fromARGB(29, 0, 0, 0),
   Color.fromARGB(255, 255, 255, 255),
   Color(0xff001B5B),
+  Color.fromARGB(95, 95, 150, 246)
 ];

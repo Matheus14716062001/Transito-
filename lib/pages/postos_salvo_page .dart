@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:project/Modules/cor.dart';
-import 'package:project/Widget/contr.dart';
 import '../Widget/NavBar.dart';
+import '../Widget/contr.dart';
 import '../Widget/text_c2.dart';
 
-class EstacoesPage extends StatelessWidget {
-  const EstacoesPage({Key? key}) : super(key: key);
+class Postosalvopage extends StatelessWidget {
+  const Postosalvopage({Key? key}) : super(key: key);
+  // ignore: non_constant_identifier_names
 
   @override
   Widget build(BuildContext context) {
-    const List<double> w = [0.8, 0.05];
-    const List<double> f = [24]; //[25, 20, 15]
+    ;
 
+    const List<double> w = [0.8, 0.05];
+
+    const List<double> f = [24];
     return MaterialApp(
       home: Scaffold(
         drawer: NavBar(context),
@@ -37,16 +40,13 @@ class EstacoesPage extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(height: 0.05 * MediaQuery.of(context).size.height),
-                Text_c2(
-                    context, 'ESTAÇÕES MAIS PERTO', f[0], w[1], w[0], cor[1]),
-
-                ///////////////////////////
+                Text_c2(context, 'POSTOS SALVOS', f[0], w[1], w[0], cor[1]),
                 Expanded(
                   child: Contr(
                     context_: context,
-                    tipo: 'e',
+                    tipo: 'ps',
                   ),
-                )
+                ),
               ],
             ),
           ),

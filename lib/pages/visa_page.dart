@@ -1,25 +1,33 @@
 import 'package:flutter/material.dart';
-
+import 'package:project/Modules/cor.dart';
 import '../Widget/NavBar.dart';
-import '../Widget/text_c.dart';
+import '../Widget/custTefromField.dart';
+import '../Widget/button_g.dart';
 
+// ignore: must_be_immutable
 class VisaPage extends StatelessWidget {
-  const VisaPage({Key? key}) : super(key: key);
+  VisaPage({Key? key}) : super(key: key);
+  TextEditingController dadoNome = TextEditingController();
+  TextEditingController dadoEmail = TextEditingController();
+  TextEditingController dadoSenha = TextEditingController();
+  TextEditingController dadoconfirmarsenha = TextEditingController();
+  TextEditingController dadoMarca = TextEditingController();
+  TextEditingController dadoLinha = TextEditingController();
+  TextEditingController dadoAno = TextEditingController();
 
+  var emailkey = GlobalKey<FormFieldState>();
+  var nomekey = GlobalKey<FormFieldState>();
+  var senhakey = GlobalKey<FormFieldState>();
+  var confirmarsenhakey = GlobalKey<FormFieldState>();
+  var marcakey = GlobalKey<FormFieldState>();
+  var linhakey = GlobalKey<FormFieldState>();
+  var anokey = GlobalKey<FormFieldState>();
   @override
   Widget build(BuildContext context) {
     const List<double> w = [0.40, 0.20, 0.04];
     const List<double> e = [0.04, 0.025];
     const List<double> f = [20];
-    const List<Color> cor = [Color(0xffFEF44E), Color(0xFF61FD7D)];
 
-    final ButtonStyle stylebutton_1 = ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
-        ),
-        textStyle: TextStyle(fontSize: f[0], fontWeight: FontWeight.bold),
-        minimumSize: const Size(350, 60),
-        primary: cor[1]);
     return MaterialApp(
       home: Scaffold(
         drawer: NavBar(context),
@@ -53,187 +61,34 @@ class VisaPage extends StatelessWidget {
                   height: w[1] * MediaQuery.of(context).size.height,
                   width: 0.8 * MediaQuery.of(context).size.width,
                 ),
-                Text_c(
-                    context, 'Valor Total :  181,50', f[0], w[2], 0.8, cor[0]),
+                Cust_Texformfield(
+                    dado: dadoSenha,
+                    label: 'Número do cartão',
+                    key_: emailkey,
+                    hint: 'Digite Número do cartão'),
                 SizedBox(height: e[1] * MediaQuery.of(context).size.height),
-                SizedBox(
-                  width: 0.8 * MediaQuery.of(context).size.width,
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: 'Número do cartão',
-                      labelStyle: TextStyle(
-                        fontSize: 12,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                        ),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.blue, width: 30)),
-                    ),
-                    onSaved: (String? value) {
-                      // This optional block of code can be used to run
-                      // code when the user saves the form.
-                    },
-                    //controller: ,
-                    validator: (String? value) {
-                      //if ((value == null) || (validador == false)) {
-                      // return 'Email invalida';
-                      //}
-                    },
-                  ),
-                ),
+                Cust_Texformfield(
+                    dado: dadoNome,
+                    label: 'Nome',
+                    key_: nomekey,
+                    hint: 'Digite o Nome'),
+                Cust_Texformfield(
+                    dado: dadoSenha,
+                    label: 'Validade',
+                    key_: linhakey,
+                    hint: 'Digite a Validade'),
                 SizedBox(height: e[1] * MediaQuery.of(context).size.height),
-                SizedBox(
-                  width: 0.8 * MediaQuery.of(context).size.width,
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: 'Nome',
-                      labelStyle: TextStyle(
-                        fontSize: 12,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                        ),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.blue, width: 30)),
-                    ),
-                    onSaved: (String? value) {
-                      // This optional block of code can be used to run
-                      // code when the user saves the form.
-                    },
-                    //controller: ,
-                    validator: (String? value) {
-                      //if ((value == null) || (validador == false)) {
-                      // return 'Email invalida';
-                      //}
-                    },
-                  ),
-                ),
+                Cust_Texformfield(
+                    dado: dadoSenha,
+                    label: 'Código de segurança',
+                    key_: senhakey,
+                    hint: 'Digite o Código de segurança'),
                 SizedBox(height: e[1] * MediaQuery.of(context).size.height),
-                SizedBox(
-                  width: 0.8 * MediaQuery.of(context).size.width,
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: 'Validade',
-                      labelStyle: TextStyle(
-                        fontSize: 12,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                        ),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.blue, width: 30)),
-                    ),
-                    onSaved: (String? value) {
-                      // This optional block of code can be used to run
-                      // code when the user saves the form.
-                    },
-                    //controller: ,
-                    validator: (String? value) {
-                      //if ((value == null) || (validador == false)) {
-                      // return 'Email invalida';
-                      //}
-                    },
-                  ),
-                ),
-                SizedBox(height: e[1] * MediaQuery.of(context).size.height),
-                Row(
-                  children: [
-                    SizedBox(
-                      width: 0.1 * MediaQuery.of(context).size.width,
-                    ),
-                    SizedBox(
-                      width: 0.35 * MediaQuery.of(context).size.width,
-                      child: TextFormField(
-                        decoration: const InputDecoration(
-                          labelText: 'Validade',
-                          labelStyle: TextStyle(
-                            fontSize: 12,
-                            color: Color.fromARGB(255, 255, 255, 255),
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20.0)),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                            ),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.blue, width: 30)),
-                        ),
-                        onSaved: (String? value) {
-                          // This optional block of code can be used to run
-                          // code when the user saves the form.
-                        },
-                        //controller: ,
-                        validator: (String? value) {
-                          //if ((value == null) || (validador == false)) {
-                          // return 'Email invalida';
-                          //}
-                        },
-                      ),
-                    ),
-                    SizedBox(
-                      width: 0.1 * MediaQuery.of(context).size.width,
-                    ),
-                    SizedBox(
-                      width: 0.35 * MediaQuery.of(context).size.width,
-                      child: TextFormField(
-                        decoration: const InputDecoration(
-                          labelText: 'Código de segurança',
-                          labelStyle: TextStyle(
-                            fontSize: 12,
-                            color: Color.fromARGB(255, 255, 255, 255),
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20.0)),
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                            ),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(color: Colors.blue, width: 30)),
-                        ),
-                        onSaved: (String? value) {
-                          // This optional block of code can be used to run
-                          // code when the user saves the form.
-                        },
-                        //controller: ,
-                        validator: (String? value) {
-                          //if ((value == null) || (validador == false)) {
-                          // return 'Email invalida';
-                          //}
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: e[1] * MediaQuery.of(context).size.height),
-                ElevatedButton(
-                  onPressed: () => Navigator.pushNamed(context, '/MapaPage'),
-                  style: stylebutton_1,
-                  child: const Text(
-                    "Pagar",
-                    style: TextStyle(color: Colors.black),
-                  ),
+                Button_g(
+                  cor: cor[0],
+                  tex: "Pagar",
+                  context_: context,
+                  navegacao: '/MapaPage',
                 ),
               ],
             ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../Widget/custTefromField.dart';
 import '../Widget/voltar.dart';
 
@@ -19,15 +18,16 @@ class _CadastrarPageState extends State<CadastrarPage> {
   TextEditingController dadoLinha = TextEditingController();
   TextEditingController dadoAno = TextEditingController();
 
-  final Emailkey = GlobalKey<FormFieldState>();
-  final Nomekey = GlobalKey<FormFieldState>();
-  final Senhakey = GlobalKey<FormFieldState>();
-  final Confirmarsenhakey = GlobalKey<FormFieldState>();
-  final Marcakey = GlobalKey<FormFieldState>();
-  final Linhakey = GlobalKey<FormFieldState>();
-  final Anokey = GlobalKey<FormFieldState>();
+  var emailkey = GlobalKey<FormFieldState>();
+  var nomekey = GlobalKey<FormFieldState>();
+  var senhakey = GlobalKey<FormFieldState>();
+  var confirmarsenhakey = GlobalKey<FormFieldState>();
+  var marcakey = GlobalKey<FormFieldState>();
+  var linhakey = GlobalKey<FormFieldState>();
+  var anokey = GlobalKey<FormFieldState>();
   static const List<double> w = [0.8, 0.085, 0.06, 0.24, 0.35];
   static const List<double> e = [0.1, 0.035, 0.03, 0.038];
+  late bool froms = true;
 
   @override
   Widget build(BuildContext context) {
@@ -72,25 +72,25 @@ class _CadastrarPageState extends State<CadastrarPage> {
                   Cust_Texformfield(
                       dado: dadoNome,
                       label: 'Nome',
-                      key_: Nomekey,
+                      key_: nomekey,
                       hint: 'Digite o Nome'),
                   SizedBox(height: e[2] * MediaQuery.of(context).size.height),
                   Cust_Texformfield(
                       dado: dadoEmail,
                       label: 'Email',
-                      key_: Emailkey,
+                      key_: emailkey,
                       hint: 'Digite o seu Email'),
                   SizedBox(height: e[1] * MediaQuery.of(context).size.height),
                   Cust_Texformfield(
                       dado: dadoSenha,
                       label: 'Senha',
-                      key_: Senhakey,
+                      key_: senhakey,
                       hint: 'Digite a sua senha'),
                   SizedBox(height: e[2] * MediaQuery.of(context).size.height),
                   Cust_Texformfield(
                       dado: dadoconfirmarsenha,
                       label: 'Confirmar Senha',
-                      key_: Confirmarsenhakey,
+                      key_: confirmarsenhakey,
                       hint: 'Confirmar a senha'),
                   SizedBox(height: e[2] * MediaQuery.of(context).size.height),
                   Row(
@@ -102,13 +102,13 @@ class _CadastrarPageState extends State<CadastrarPage> {
                   SizedBox(height: e[2] * MediaQuery.of(context).size.height),
                   ElevatedButton(
                     onPressed: () => {
-                      Emailkey.currentState?.validate(),
-                      Senhakey.currentState?.validate(),
-                      Nomekey.currentState?.validate(),
-                      Confirmarsenhakey.currentState?.validate(),
-                      Marcakey.currentState?.validate(),
-                      Linhakey.currentState?.validate(),
-                      Anokey.currentState?.validate(),
+                      emailkey.currentState?.validate(),
+                      senhakey.currentState?.validate(),
+                      nomekey.currentState?.validate(),
+                      confirmarsenhakey.currentState?.validate(),
+                      marcakey.currentState?.validate(),
+                      linhakey.currentState?.validate(),
+                      anokey.currentState?.validate(),
                       Navigator.pushNamed(context, '/LoginPage'),
                     },
                     style: stylebutton_2,
@@ -116,7 +116,7 @@ class _CadastrarPageState extends State<CadastrarPage> {
                       "Cadastrar",
                       style: TextStyle(color: Colors.black),
                     ),
-                  ),
+                  )
                 ],
               ),
             ),

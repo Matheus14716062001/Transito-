@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/Modules/dado_posto.dart';
 import 'package:project/pages/Consumo.dart';
 import 'package:project/pages/carro_cadastrar_page.dart';
 import 'package:project/pages/estacoes_page.dart';
@@ -10,6 +11,7 @@ import 'package:project/pages/mapa_page.dart';
 import 'package:project/pages/pagamento_page.dart';
 import 'package:project/pages/pix_page.dart';
 import 'package:project/pages/postos_page.dart';
+import 'package:project/pages/postos_salvo_page%20.dart';
 import 'package:project/pages/signup_page.dart';
 import 'package:project/pages/cadastrar_page.dart';
 import 'package:project/pages/tipoabastecimento_page.dart';
@@ -31,13 +33,16 @@ void main() async {
         '/EstacoesPage': (context) => const EstacoesPage(),
         '/PostoPage': (context) => const PostoPage(),
         '/FilaPage': (context) => const FilaPage(),
-        '/PagamentoPage': (context) => const PagamentoPage(),
+        '/PagamentoPage': (context) => PagamentoPage(
+              lista: posto[0],
+            ),
         '/PixPage': (context) => const PixPage(),
-        '/VisaPage': (context) => const VisaPage(),
+        '/VisaPage': (context) => VisaPage(),
         '/MapaPage': (context) => const MapaPage(),
         '/FeedbackPage': (context) => const FeedbackPage(),
         '/ConsumoPage': (context) => ConsumoPage(cont: 0),
         '/Cadastrar_carroPage': (context) => const Cadastrar_carroPage(),
+        '/posto_s_page': (context) => const Postosalvopage(),
       },
     ),
   );
